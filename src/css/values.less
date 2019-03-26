@@ -8,35 +8,8 @@
 /*
  * Fonts
  */
-@gotham: 'Gotham SSm', Helvetica, Arial, sans-serif;
-@knockout: 'Knockout 31 4r','Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
 @sans: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
 @serif: Georgia, "Times New Roman", Times, serif;
-
-.gotham() {
-    font-family: @gotham;
-    font-weight: normal;
-    font-weight: 400;
-}
-
-// Normal Knockout
-.knockout() {
-    font-family: @knockout;
-    font-weight: normal;
-}
-
-// Knockout, uppercased
-.knockout-upper() {
-    .knockout();
-    text-transform: uppercase;
-}
-
-// Knockout for headings
-.knockout-header() {
-    .knockout-upper();
-    letter-spacing: 0.05em;
-    -webkit-font-smoothing: antialiased;
-}
 
 /*
  * Colors
@@ -44,6 +17,11 @@
 @accent-dark: #4774CC;
 @accent-light: #bccae5;
 
-@rigorous: #d62021;
-@unbiased: #000005;
-@true: #237bbd;
+/*
+ * Units
+ */
+@gutter: 1rem;
+.gutter {
+  padding-left: @gutter;
+  padding-right: @gutter;
+}
