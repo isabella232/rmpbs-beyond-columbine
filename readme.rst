@@ -3,6 +3,7 @@ rmpbs-beyond-columbine
 
 This news app is built on NPR's `interactive template <https://github.com/INN/interactive-template>`_. Check the readme for that template for more details about the structure and mechanics of the app, as well as how to start your own project.
 
+
 Getting started
 ---------------
 
@@ -18,6 +19,7 @@ With those installed, you can then set the project up using your terminal:
 #. Enter the project folder - ``cd rmpbs-beyond-columbine``
 #. Install dependencies from NPM - ``npm install``
 #. Start the server - ``grunt``
+#. Run ``grunt google-auth`` to get permissions to download files from Google Drive. You may need to create Google Auth credentials; the applicaiton for this is in https://console.cloud.google.com/apis/credentials?project=rmpbs-beyond-columbine&folder&organizationId=363836889409 and can be installed via http://blog.apps.npr.org/2015/03/02/app-template-oauth.html .
 
 Running tasks
 -------------
