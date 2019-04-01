@@ -1,11 +1,11 @@
 {
   "s3": {
     "stage": {
-      "bucket": "",
+      "bucket": "stage-projects.rmpbs.org",
       "path": "beyond-columbine"
     },
     "live": {
-      "bucket": "stage-projects.rmpbs.org",
+      "bucket": "",
       "path": "beyond-columbine"
     }
   },
