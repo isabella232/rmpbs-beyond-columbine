@@ -69,8 +69,8 @@ module.exports = function(grunt) {
     }
 
     var creds = {
-      accessKeyId: process.env.RMPBS_A
-      secretAccessKey: process.env.RMPBS_S
+      accessKeyId: process.env.RMPBS_A,
+      secretAccessKey: process.env.RMPBS_S,
       region: "us-west-1"
     };
     if (!creds.accessKeyId) {
