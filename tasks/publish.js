@@ -69,9 +69,9 @@ module.exports = function(grunt) {
     }
 
     var creds = {
-      accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-      secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
-      region: process.env.AWS_DEFAULT_REGION || "us-west-1"
+      accessKeyId: process.env.RMPBS_A,
+      secretAccessKey: process.env.RMPBS_S,
+      region: "us-west-1"
     };
     if (!creds.accessKeyId) {
       grunt.fail.fatal("Missing AWS configuration variables.")

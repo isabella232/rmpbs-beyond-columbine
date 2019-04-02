@@ -1,12 +1,12 @@
 {
   "s3": {
     "stage": {
-      "bucket": "stage-apps.npr.org",
-      "path": "rmpbs-beyond-columbine"
+      "bucket": "stage-projects.rmpbs.org",
+      "path": "beyond-columbine"
     },
     "live": {
-      "bucket": "apps.npr.org",
-      "path": "rmpbs-beyond-columbine"
+      "bucket": "projects.rmpbs.org",
+      "path": "beyond-columbine"
     }
   },
   "styles": {

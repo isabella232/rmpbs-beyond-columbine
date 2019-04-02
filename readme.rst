@@ -3,7 +3,6 @@ rmpbs-beyond-columbine
 
 This news app is built on NPR's `interactive template <https://github.com/INN/interactive-template>`_. Check the readme for that template for more details about the structure and mechanics of the app, as well as how to start your own project.
 
-
 Getting started
 ---------------
 
@@ -40,6 +39,8 @@ Common tasks that you may want to run include:
 
 Troubleshooting
 ---------------
+
+Deploying to S3 depends upon AWS credentials being stored as the env vars documented in `tasks/publish.js`.
 
 **Fatal error: Port 35729 is already in use by another process.**
 
