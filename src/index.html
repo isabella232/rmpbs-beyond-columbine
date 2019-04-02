@@ -11,17 +11,18 @@
 			</video>
 		</section>
 
-		<section id="home-intro">
+		<section id="home-intro" class="width-reg">
 			<h2>Beyond Columbine</h2>
 
 			<p>Maecenas ac est dapibus, interdum justo sit amet, gravida enim. Etiam feugiat, lectus ac maximus venenatis, ante eros ornare lectus, vitae dapibus velit nibh ac magna. Quisque eu lacinia neque. Nunc feugiat purus ac rutrum iaculis. Nullam porttitor leo nec nisi vestibulum accumsan.</p>
 		</section>
 
-		<section id="interviews">
+		<section id="interviews" class="grid width-reg">
 		    <% csv.interviewData.forEach(function(interview) { %>
-		    <div class="interview">
+		    <div class="interview col-3">
 			    <img src="<%= interview.thumbnail %>" alt="<%= interview.name %>">	
 			    <h4><%= interview.name %>
+			</div>
 		    <% }); %>
 		</section>
 
