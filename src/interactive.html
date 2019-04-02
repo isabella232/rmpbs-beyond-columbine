@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <%= t.include("partials/_head.html", grunt.data.json) %>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+  	<script src="https://d3js.org/topojson.v2.min.js"></script> 
+  </head>
+  <body>
+    <%= t.include("partials/_nav.html", grunt.data.json) %>
+
+    <div id="mapcontainer">
+	    <div id="map" style="height:650px;"></div>
+		<div id="filter" style="float:left; width:40%;"></div>
+		<div id="table" style="float:right; width:40%;">
+		    <table class="objecttable">
+			     <thead>
+			      	<tr><th>date</th><th>city</th><th>state</th><th>killed</th></tr>
+			     </thead>
+			     <tbody></tbody>
+		    </table>
+		</div>
+	</div>
+
+    <%= t.include("partials/_footer.html", grunt.data.json) %>
+    <script src="app.js" async></script>
+    <%= t.include("partials/_analytics.html") %>
+  </body>
+</html>
