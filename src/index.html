@@ -5,14 +5,25 @@
   </head>
   <body>
     <%= t.include("partials/_nav.html", grunt.data.json) %>
-    	<div id="hero-video-container">
+    	<section id="hero-video-container">
 	    	<video muted loop id="hero-video"> <!-- autoplay -->
 			  <source src="assets/drone.mp4" type="video/mp4">
 			</video>
-		</div>
+		</section>
 
-		<h2>Beyond Columbine</h2>
+		<section id="home-intro">
+			<h2>Beyond Columbine</h2>
 
+			<p>Maecenas ac est dapibus, interdum justo sit amet, gravida enim. Etiam feugiat, lectus ac maximus venenatis, ante eros ornare lectus, vitae dapibus velit nibh ac magna. Quisque eu lacinia neque. Nunc feugiat purus ac rutrum iaculis. Nullam porttitor leo nec nisi vestibulum accumsan.</p>
+		</section>
+
+		<section id="interviews">
+		    <% csv.interviewData.forEach(function(interview) { %>
+		    <div class="interview">
+			    <img src="<%= interview.thumbnail %>" alt="<%= interview.name %>">	
+			    <h4><%= interview.name %>
+		    <% }); %>
+		</section>
 
 
     <%= t.include("partials/_footer.html", grunt.data.json) %>
