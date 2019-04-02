@@ -5,7 +5,7 @@
       "path": "beyond-columbine"
     },
     "live": {
-      "bucket": "",
+      "bucket": "projects.rmpbs.org",
       "path": "beyond-columbine"
     }
   },
