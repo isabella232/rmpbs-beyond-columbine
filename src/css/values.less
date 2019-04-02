@@ -38,14 +38,34 @@
 /* 
 * Grid
 */
-#interviews {
-	display: grid;
-    grid-template-columns: repeat(3, 1fr);
-  	grid-gap: 1em;
-}
-
 .width-reg {
 	max-width:1170px;
 	margin:0 auto;
 	padding:0 @gutter;
+	clear:both;
+}
+
+.width-narrow {
+	max-width:900px;
+	margin:0 auto;
+	padding:0 @gutter;
+	clear:both;
+}
+
+.side-thumb {
+	clear:both; 
+	margin-bottom: @gutter;
+
+	img {
+		width:33%;
+		float:left;
+		margin-right:@gutter;
+		margin-bottom: @gutter;
+	}
+}
+
+.grid-3 {
+	display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  	grid-gap: 1em;
 }

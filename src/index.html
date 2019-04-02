@@ -17,22 +17,39 @@
 			<p>Maecenas ac est dapibus, interdum justo sit amet, gravida enim. Etiam feugiat, lectus ac maximus venenatis, ante eros ornare lectus, vitae dapibus velit nibh ac magna. Quisque eu lacinia neque. Nunc feugiat purus ac rutrum iaculis. Nullam porttitor leo nec nisi vestibulum accumsan.</p>
 		</section>
 
-		<section id="interviews" class="grid-3 width-reg">
-		    <% csv.interviewData.forEach(function(interview) { %>
-		    <div class="interview col-3">
-			    <img src="<%= interview.thumbnail %>" alt="<%= interview.name %>">	
-			    <h4><%= interview.name %>
+		<section id="documentaries" class="width-narrow">
+			<h3>Documentaries</h3>
+		    <% csv.docData.forEach(function(doc) { %>
+		    <div class="doc side-thumb">
+			    <img src="<%= doc.thumbnail %>" alt="<%= doc.name %>">	
+			    <h4><%= doc.name %></h4>
+			    <div><%= doc.description %></div>
 			</div>
 		    <% }); %>
 		</section>
 
-		<section id="more" class="grid-3 width-reg">
-		    <% csv.moreData.forEach(function(more) { %>
-		    <div class="more col-3">
-			    <img src="<%= more.thumbnail %>" alt="<%= more.name %>">	
-			    <h4><%= more.name %>
-			</div>
+		<section id="interviews" class="width-reg">
+			<h3>Interviews</h3>
+			<div class="grid-3">
+			    <% csv.interviewData.forEach(function(interview) { %>
+			    <div class="interview col-3">
+				    <img src="<%= interview.thumbnail %>" alt="<%= interview.name %>">	
+				    <h4><%= interview.name %></h4>
+				</div>
 		    <% }); %>
+			</div>
+		</section>
+
+		<section id="more" class="width-reg">
+			<h3>More</h3>
+			<div class="grid-3">
+		    <% csv.moreData.forEach(function(more) { %>
+			    <div class="more col-3">
+				    <img src="<%= more.thumbnail %>" alt="<%= more.name %>">	
+				    <h4><%= more.name %></h4>
+				</div>
+		    <% }); %>
+			</div>
 		</section>
 
 
