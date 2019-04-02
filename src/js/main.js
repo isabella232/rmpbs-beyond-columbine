@@ -2,12 +2,15 @@
 
 
 var data_url = require("./interactiveData");
-console.log(data_url.records);
 var url = "https://cdn.jsdelivr.net/npm/us-atlas@2/us/states-10m.json";
 
-var svg = d3.select("#map").append("svg").append("g");
+var width = window.innerWidth;
+
+var svg = d3.select("#map").append("svg").append("g").attr("transform","scale(" + width/1000 + ")");
 var projection = d3.geoAlbersUsa().scale(1280).translate([480, 300]);
 var path = d3.geoPath();
+
+d3.select("#map").attr("style","height:" + (width*0.67) + "px")
 
 var table = d3.select("#table tbody");
 

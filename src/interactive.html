@@ -9,17 +9,23 @@
     <%= t.include("partials/_nav.html", grunt.data.json) %>
 
     <div id="mapcontainer">
-	    <div id="map" style="height:650px;"></div>
-		<div id="filter" style="float:left; width:40%;"></div>
-		<div id="table" style="float:right; width:40%;">
-		    <table class="objecttable">
-			     <thead>
-			      	<tr><th>date</th><th>city</th><th>state</th><th>killed</th></tr>
-			     </thead>
-			     <tbody></tbody>
-		    </table>
-		</div>
-	</div>
+	    <div id="map"></div>
+        <div class="width-reg grid-2">
+    		  <div id="filter">
+            <h3>Data Interactive Title</h3>
+            <p>Here's the intro text for the interactive component.</p>
+            <p>Use the dropdown below to filter the data by state.</p>  
+          </div>
+    		  <div id="table">
+    		    <table class="objecttable">
+    			     <thead>
+    			      	<tr><th>date</th><th>city</th><th>state</th><th>killed</th></tr>
+    			     </thead>
+    			     <tbody></tbody>
+    		    </table>
+    		  </div>
+        </div>
+	  </div>
 
     <%= t.include("partials/_footer.html", grunt.data.json) %>
     <script src="app.js" async></script>

@@ -64,8 +64,20 @@
 	}
 }
 
+.grid-2 {
+	display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  	grid-gap: 1em;
+}
+
 .grid-3 {
 	display: grid;
     grid-template-columns: repeat(3, 1fr);
   	grid-gap: 1em;
+}
+
+.grid-2, .grid-3 {
+	@media (max-width: 768px)  {
+		grid-template-columns: repeat(1, 1fr);
+	}
 }
