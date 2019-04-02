@@ -10,6 +10,8 @@ var svg = d3.select("#map").append("svg").append("g").attr("transform","scale(" 
 var projection = d3.geoAlbersUsa().scale(1280).translate([480, 300]);
 var path = d3.geoPath();
 
+d3.select("#map").attr("style","height:" + (width*0.67) + "px")
+
 var table = d3.select("#table tbody");
 
 Promise.all([d3.json(url)]).then(function(data) {
