@@ -42,8 +42,14 @@ Promise.all([d3.json(url)]).then(function(data) {
 
   var filterData = function() {
       var selectedState = d3.select(this).property('value');
+      d3.selectAll("tbody tr:nth-child(odd)").style("background-color", "white");
       d3.selectAll("table tbody tr").style("display", "none");
-      d3.selectAll("tr." + selectedState).style("display", "table-row");
+      d3.selectAll("tbody tr." + selectedState).style("display", "table-row");
+      d3.selectAll("tbody tr." + selectedState).style("background-color", function(d,i) {
+        if (i % 2 == 0) {
+          return "#f0f0f0";
+        }
+      });
   };
 
   var dropdown = d3.select("#filter")
@@ -108,6 +114,8 @@ Promise.all([d3.json(url)]).then(function(data) {
    .data(shootingsTable)
    .enter().append("tr")
    .attr("class",function(d) { return d.state; });
+
+   d3.selectAll("tbody tr:nth-child(odd)").style("background-color", "#f0f0f0");
 
   var td = tr.selectAll("td")
    .data(function(d, i) { return Object.values(d); })
