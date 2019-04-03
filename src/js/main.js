@@ -62,7 +62,7 @@ Promise.all([d3.json(url)]).then(function(data) {
   .enter()
     .append("circle")
     .attr("class", function(d) {
-      return d.state;
+      return d.state + " map-dot";
     })
     .attr("r", function(d) {
       return 10;
@@ -75,9 +75,7 @@ Promise.all([d3.json(url)]).then(function(data) {
     })
     .attr("transform", function(d) {
       return "translate(" + projection([+d.long, +d.lat]) + ")";
-    })
-    .attr("fill", "black")
-    .attr("opacity", 0.3);
+    });
 
 
 
