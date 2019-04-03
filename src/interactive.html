@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <%= t.include("partials/_head.html", grunt.data.json) %>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+  	<script src="https://d3js.org/topojson.v2.min.js"></script> 
+  </head>
+  <body>
+    <%= t.include("partials/_nav.html", grunt.data.json) %>
+
+    <div id="mapcontainer">
+	    <div id="map"></div>
+        <div id="interactive-text" class="width-reg grid-2">
+    		  <div id="filter">
+            <h3>Data Interactive Title</h3>
+            <p>Here's the intro text for the interactive component.</p>
+            <p>Use the dropdown below to filter the data by state.</p>  
+          </div>
+    		  <div id="table">
+    		    <table class="objecttable">
+    			     <thead>
+    			      	<tr><th>date</th><th>city</th><th>state</th><th>killed</th></tr>
+    			     </thead>
+    			     <tbody></tbody>
+    		    </table>
+    		  </div>
+        </div>
+	  </div>
+
+    <%= t.include("partials/_footer.html", grunt.data.json) %>
+    <script src="app.js" async></script>
+    <%= t.include("partials/_analytics.html") %>
+  </body>
+</html>

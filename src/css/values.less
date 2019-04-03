@@ -8,14 +8,23 @@
 /*
  * Fonts
  */
-@sans: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+@sans: 'Open Sans', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
 @serif: Georgia, "Times New Roman", Times, serif;
 
 /*
  * Colors
  */
-@accent-dark: #4774CC;
-@accent-light: #bccae5;
+
+@darkpurple: #534f98;
+@lightpurple: #7059a6;
+@indigo: #0072ce;
+@blue: #659ad2;
+@green: #87be3c;
+@yellow: #cdd61f;
+@gray: #666666;
+
+@accent-dark: #464646;
+@accent-light: @indigo;
 
 /*
  * Units
@@ -24,4 +33,51 @@
 .gutter {
   padding-left: @gutter;
   padding-right: @gutter;
+}
+
+/* 
+* Grid
+*/
+.width-reg {
+	max-width:1170px;
+	margin:0 auto;
+	padding:0 @gutter;
+	clear:both;
+}
+
+.width-narrow {
+	max-width:900px;
+	margin:0 auto;
+	padding:0 @gutter;
+	clear:both;
+}
+
+.side-thumb {
+	clear:both; 
+	margin-bottom: @gutter;
+
+	img {
+		width:33%;
+		float:left;
+		margin-right:@gutter;
+		margin-bottom: @gutter;
+	}
+}
+
+.grid-2 {
+	display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  	grid-gap: 1em;
+}
+
+.grid-3 {
+	display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  	grid-gap: 1em;
+}
+
+.grid-2, .grid-3 {
+	@media (max-width: 768px)  {
+		grid-template-columns: repeat(1, 1fr);
+	}
 }
