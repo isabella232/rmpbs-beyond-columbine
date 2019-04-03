@@ -50,8 +50,7 @@ Promise.all([d3.json(url)]).then(function(data) {
     .selectAll("path")
     .data(topojson.feature(us, us.objects.states).features)
     .enter().append("path")
-      .attr("d", path)
-      .attr("fill", "lightgray");
+      .attr("d", path);
 
   svg.append("path")
       .attr("class", "state-borders")
@@ -99,7 +98,10 @@ Promise.all([d3.json(url)]).then(function(data) {
 
   // create function for the dropdown filtering
   var filterData = function() {
+      // get selected state
       var selectedState = d3.select(this).property('value');
+
+      // fade out table data for other states, bring back selected state (while making sure our even/odd background look stays intact)
       d3.selectAll("tbody tr:nth-child(odd)").style("background-color", "white");
       d3.selectAll("table tbody tr").style("display", "none");
       d3.selectAll("tbody tr." + selectedState).style("display", "table-row");
@@ -108,6 +110,8 @@ Promise.all([d3.json(url)]).then(function(data) {
           return "#f0f0f0";
         }
       });
+
+
   };
 
   // draw table filter dropdown
