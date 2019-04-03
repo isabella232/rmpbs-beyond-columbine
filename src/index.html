@@ -5,6 +5,7 @@
   </head>
   <body>
     <%= t.include("partials/_nav.html", grunt.data.json) %>
+    <article id="home">
     	<section id="hero-video-container">
 	    	<video muted autoplay loop id="hero-video"> 
 			  <source src="assets/drone.mp4" type="video/mp4">
@@ -32,7 +33,7 @@
 
 		<section id="interviews" class="width-reg">
 			<h2>Interviews</h2>
-			<div class="grid-3">
+			<div class="grid-4">
 			    <% csv.interviewData.forEach(function(interview) { %>
 			    <div class="grid-item interview col-3">
 				    <img src="<%= interview.thumbnail %>" alt="<%= interview.name %>">	
@@ -53,7 +54,7 @@
 		    <% }); %>
 			</div>
 		</section>
-
+	</article>
 
     <%= t.include("partials/_footer.html", grunt.data.json) %>
     <script src="app.js" async></script>
