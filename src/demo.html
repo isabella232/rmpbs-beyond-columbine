@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <%= t.include("partials/_head.html", grunt.data.json) %>
+  </head>
+  <body>
+    <%= t.include("partials/_nav.html", grunt.data.json) %>
+
+    <h1>
+      <%= archieml.demo_article.headline %>
+    </h1>
+    <h3>
+      <%= archieml.demo_article.leadin %>
+    </h3>
+
+    <iframe
+      width="560"
+      height="315"
+      src="https://www.youtube-nocookie.com/embed/<%= archieml.demo_article.video_slug %>"
+      frameborder="0"
+      allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen>
+    </iframe>
+
+    <details>
+      <summary>Video transcript</summary>
+      <%= t.renderMarkdown(archieml.demo_article.text) %>
+    </details>
+
+    <%= t.renderMarkdown(archieml.demo_article.text) %>
+
+    <%= t.include("partials/_footer.html", grunt.data.json) %>
+    <script src="app.js" async></script>
+    <%= t.include("partials/_analytics.html") %>
+  </body>
+</html>
