@@ -29,10 +29,17 @@
 
     d3.select("#map").attr("style","height:" + (width*0.67) + "px")
 
+    var div = d3.select("body").append("div") 
+    .attr("class", "tooltip")       
+    .style("opacity", 0);
+
 
 
     // select area for table
     var table = d3.select("#table tbody");
+
+
+
 
 
 
@@ -56,6 +63,7 @@
           city: d.city,
           state: d.state,
           killed: d.killed,
+          injured: d.injured,
         }
       });
 
@@ -72,10 +80,15 @@
           .attr("class", "state-borders")
           .attr("d", path(topojson.mesh(us, us.objects.states, function(a, b) { return a !== b; })));
       
+
+
+      // draw points on map
       svg.selectAll("circle")
         .data(shootings)
       .enter()
         .append("circle")
+        .on("mouseover", activateTooltip)
+        .on("mouseout", deactivateTooltip)
         .attr("class", function(d) {
           return d.state + " map-dot";
         })
@@ -91,6 +104,25 @@
         .attr("transform", function(d) {
           return "translate(" + projection([+d.long, +d.lat]) + ")";
         });
+
+
+      function activateTooltip(d) {
+        div.transition()    
+          .duration(250)    
+          .style("opacity", .9);    
+        div.html(d.city + ", " + d.state + 
+          "<br/>" + d.killed + " killed, " + d.injured + " injured" +
+          "<br/>" + d.date
+          )  
+          .style("left", (d3.event.pageX) + "px")   
+          .style("top", (d3.event.pageY - 60) + "px");
+      }
+
+      function deactivateTooltip(d) {
+        // div.transition()    
+        //         .duration(500)    
+        //         .style("opacity", 0); 
+      }
 
 
 
@@ -178,6 +210,7 @@
           city: d.city,
           state: d.state,
           killed: d.killed,
+          injured: d.injured,
         }
       });
 
