@@ -21,14 +21,25 @@ module.exports = function(grunt) {
 
     var drive = google.drive({ auth, version: "v3" });
 
-    async.each(config.docs, async function(fileId) {
-      var meta = await drive.files.get({ fileId });
-      var name = meta.data.name.replace(/\s+/g, "_") + ".docs.txt";
-      var body = await drive.files.export({ fileId, mimeType: "text/plain" });
-      var text = body.data.replace(/\r\n/g, "\n");
-      console.log(`Writing document as data/${name}`);
-      grunt.file.write(path.join("data", name), text);
-    }, done);
+    /*
+     * limit 2 concurrent operations, https://caolan.github.io/async/docs.html#eachLimit
+     * thanks to https://stackoverflow.com/a/34865245
+     *
+     * Because of https://github.com/nprapps/interactive-template/issues/12
+     */
+    async.eachLimit(
+      config.docs,
+      2, 
+      async function(fileId) {
+        var meta = await drive.files.get({ fileId });
+        var name = meta.data.name.replace(/\s+/g, "_") + ".docs.txt";
+        var body = await drive.files.export({ fileId, mimeType: "text/plain" });
+        var text = body.data.replace(/\r\n/g, "\n");
+        console.log(`Writing document as data/${name}`);
+        grunt.file.write(path.join("data", name), text);
+      },
+      done
+    );
 
   });
 }
