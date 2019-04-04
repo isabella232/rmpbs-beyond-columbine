@@ -15,62 +15,114 @@
 <meta name='format-detection' content='telephone=no'>
 
 <% if (!project.embedded) { %>
-<!-- BEGIN TWITTER SUMMARY CARD -->
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="<%= project.title %>">
-<meta name="twitter:site" content="@rmpbs">
-<meta name="twitter:url" content="<%= project.url %>">
-<meta name="twitter:image" content="<%= project.url + project.image %>">
-<meta name="twitter:description" content="<%= project.description %>">
+  <!-- this project is not embedded -->
 
-<!-- Social sharing meta -->
-<meta property="og:type" content="article">
-<meta property="og:title" content="<%= project.title %>">
-<meta property="og:site_name" content="Rocky Mountain PBS">
-<meta property="og:url" content="<%= project.url %>">
-<meta property="og:image" content="<%= project.url + project.image %>">
-<meta property="og:description" content="<%= project.description %>">
-<meta property="fb:app_id" content="416270055215191"/>
+  <% if ( typeof page !== 'undefined' ) { %>
 
-<!-- Google structured data -->
-<script type="application/ld+json">
-{
-  "@context": "http://schema.org",
-  "@type": "NewsArticle",
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "<%= project.url %>"
-  },
-  "headline": "<%= project.title %>",
-  "image": {
-    "@type": "ImageObject",
-    "url": "<%= project.url + project.image %>"
-  },
-  "author": {
-    "@type": "Person",
-    "name": "Rocky Mountain PBS Staff"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "Rocky Mountain PBS",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "<%= project.url %>assets/logo.png",
-      "width": 891,
-      "height": 296
+    <!-- BEGIN TWITTER SUMMARY CARD -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="<%= page.title %>">
+    <meta name="twitter:site" content="@rmpbs">
+    <meta name="twitter:url" content="<%= page.url %>">
+    <meta name="twitter:image" content="<%= page.image %>">
+    <meta name="twitter:description" content="<%= page.description %>">
+
+    <!-- Social sharing meta -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="<%= page.title %>">
+    <meta property="og:site_name" content="Rocky Mountain PBS">
+    <meta property="og:url" content="<%= page.url %>">
+    <meta property="og:image" content="<%= page.image %>">
+    <meta property="og:description" content="<%= page.description %>">
+    <meta property="fb:app_id" content="416270055215191"/>
+
+    <!-- Google structured data -->
+    <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "NewsArticle",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "<%= page.url %>"
+      },
+      "headline": "<%= page.title %>",
+      "image": {
+        "@type": "ImageObject",
+        "url": "<%= page.image %>"
+      },
+      "author": {
+        "@type": "Person",
+        "name": "Rocky Mountain PBS Staff"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Rocky Mountain PBS",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "<%= project.url %>assets/logo.png",
+          "width": 891,
+          "height": 296
+        }
+      },
+      "description": "<%= page.description %>"
     }
-  },
-  "description": "<%= project.description %>"
-}
-</script>
+    </script>
 
-<!-- Chartbeat top -->
-<script type="text/javascript">var _sf_startpt=(new Date()).getTime()</script>
+  <% } else { %>
 
-<%
-// if !project.embedded...
-} 
-%>
+    <!-- BEGIN TWITTER SUMMARY CARD -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="<%= project.title %>">
+    <meta name="twitter:site" content="@rmpbs">
+    <meta name="twitter:url" content="<%= project.url %>">
+    <meta name="twitter:image" content="<%= project.url + project.image %>">
+    <meta name="twitter:description" content="<%= project.description %>">
+
+    <!-- Social sharing meta -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="<%= project.title %>">
+    <meta property="og:site_name" content="Rocky Mountain PBS">
+    <meta property="og:url" content="<%= project.url %>">
+    <meta property="og:image" content="<%= project.url + project.image %>">
+    <meta property="og:description" content="<%= project.description %>">
+    <meta property="fb:app_id" content="416270055215191"/>
+
+    <!-- Google structured data -->
+    <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "NewsArticle",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "<%= project.url %>"
+      },
+      "headline": "<%= project.title %>",
+      "image": {
+        "@type": "ImageObject",
+        "url": "<%= project.url + project.image %>"
+      },
+      "author": {
+        "@type": "Person",
+        "name": "Rocky Mountain PBS Staff"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Rocky Mountain PBS",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "<%= project.url %>assets/logo.png",
+          "width": 891,
+          "height": 296
+        }
+      },
+      "description": "<%= project.description %>"
+    }
+    </script>
+
+    <!-- Chartbeat top -->
+    <script type="text/javascript">var _sf_startpt=(new Date()).getTime()</script>
+  <% } %>
+<% } %>
 
 <%= t.include("partials/_webfonts.html") %>
 <link rel="stylesheet" type="text/css" href="style.css">
