@@ -1,11 +1,25 @@
 #site-footer {
   background-color: @gray;
-  padding-top:@gutter;
+  padding-top:@gutter * 2;
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  gap: 8rem;
 
   .gutter();
 
   img {
-    width:300px;
+    width:100%;
+  }
+
+  a {
+    text-decoration:none;
+  }
+
+  h1 {
+    color:white;
+    text-transform:uppercase;
+    font-size:3.25rem;
+    margin-top:0;
   }
 
   ul {
@@ -16,7 +30,8 @@
     color:white;
     text-transform:uppercase;
     font-weight:bold;
-    margin-bottom:@gutter;
+    margin-bottom:0.5rem;
+    font-size:1.5rem;
 
     &.sublink {
       margin-left:20px;
