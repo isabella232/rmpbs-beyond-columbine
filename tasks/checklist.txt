@@ -9,6 +9,7 @@ project.json to allow live publishes.
 - Does it have a dateline?
 - Are all the photos credited?
 - Are the images in `assets/` up to date?
+- Are all the images referred to in archieml as `image:` correct, with their fully-qualified URLs?
 - Do all share buttons work?
 - Is there a default photo for FB?
 - Is there alternate text (< 140 characters) for Twitter?
