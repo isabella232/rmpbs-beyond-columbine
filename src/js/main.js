@@ -214,17 +214,44 @@
         }
       });
 
+      drawTable(shootingsTable);
+
       // draw table
-      var tr = table
-       .selectAll("tr")
-       .data(shootingsTable)
-       .enter().append("tr")
-       .attr("class",function(d) { return d.state; });
+      function drawTable(tabledata) {
+        table.selectAll("tr").remove();
 
-       d3.selectAll("tbody tr:nth-child(odd)").style("background-color", "#f0f0f0");
+        var tr = table
+         .selectAll("tr")
+         .data(tabledata)
+         .enter().append("tr")
+         .attr("class",function(d) { return d.state; });
 
-      var td = tr.selectAll("td")
-       .data(function(d, i) { return Object.values(d); })
-       .enter().append("td")
-         .text(function(d) { return d; });
+        d3.selectAll("tbody tr:nth-child(odd)").style("background-color", "#f0f0f0");
+
+        var td = tr.selectAll("td")
+         .data(function(d, i) { return Object.values(d); })
+         .enter().append("td")
+           .text(function(d) { return d; });
+      }
+
+
+
+      // sort table when clicking on header
+      var tableheaders = d3.selectAll("th");
+      var value;
+      var headerClick = false;
+
+      tableheaders.on("click",function() {
+        value = this.innerHTML;
+        if (headerClick == false) {
+          headerClick = true;
+          shootingsTable = shootingsTable.sort(function(a,b){return d3.descending(a[value], b[value]); });
+          drawTable(shootingsTable);
+        } else {
+          headerClick = false;
+          shootingsTable = shootingsTable.sort(function(a,b){return d3.ascending(a[value], b[value]); });
+          drawTable(shootingsTable);
+        }
+        
+      })
     });
