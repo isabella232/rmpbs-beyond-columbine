@@ -18,6 +18,8 @@
     var url = "https://cdn.jsdelivr.net/npm/us-atlas@2/us/states-10m.json";
 
     var width = window.innerWidth;
+    var height = width*0.67;
+    var centered;
 
 
     // create area for map
@@ -27,10 +29,17 @@
 
     d3.select("#map").attr("style","height:" + (width*0.67) + "px")
 
+    var div = d3.select("body").append("div") 
+    .attr("class", "tooltip")       
+    .style("opacity", 0);
+
 
 
     // select area for table
     var table = d3.select("#table tbody");
+
+
+
 
 
 
@@ -54,6 +63,7 @@
           city: d.city,
           state: d.state,
           killed: d.killed,
+          injured: d.injured,
         }
       });
 
@@ -63,16 +73,22 @@
         .selectAll("path")
         .data(topojson.feature(us, us.objects.states).features)
         .enter().append("path")
-          .attr("d", path);
+          .attr("d", path)
+          .on("click", zoomstate);
 
       svg.append("path")
           .attr("class", "state-borders")
           .attr("d", path(topojson.mesh(us, us.objects.states, function(a, b) { return a !== b; })));
       
+
+
+      // draw points on map
       svg.selectAll("circle")
         .data(shootings)
       .enter()
         .append("circle")
+        .on("mouseover", activateTooltip)
+        .on("mouseout", deactivateTooltip)
         .attr("class", function(d) {
           return d.state + " map-dot";
         })
@@ -88,6 +104,53 @@
         .attr("transform", function(d) {
           return "translate(" + projection([+d.long, +d.lat]) + ")";
         });
+
+
+      function activateTooltip(d) {
+        div.transition()    
+          .duration(250)    
+          .style("opacity", .9);    
+        div.html(d.city + ", " + d.state + 
+          "<br/>" + d.killed + " killed, " + d.injured + " injured" +
+          "<br/>" + d.date
+          )  
+          .style("left", (d3.event.pageX) + "px")   
+          .style("top", (d3.event.pageY - 60) + "px");
+      }
+
+      function deactivateTooltip(d) {
+        // div.transition()    
+        //         .duration(500)    
+        //         .style("opacity", 0); 
+      }
+
+
+
+        // function for zooming into map
+      function zoomstate(d) {
+        var x, y, k;
+
+        if (d && centered !== d) {
+          var centroid = path.centroid(d);
+          x = centroid[0];
+          y = centroid[1];
+          k = 4;
+          centered = d;
+        } else {
+          x = width / 2;
+          y = height / 2;
+          k = 1;
+          centered = null;
+        }
+
+        svg.selectAll("path")
+            .classed("active", centered && function(d) { return d === centered; });
+
+        svg.transition()
+            .duration(750)
+            .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")scale(" + k + ")translate(" + -x + "," + -y + ")")
+            .style("stroke-width", 1.5 / k + "px");
+      }
 
 
 
@@ -147,6 +210,7 @@
           city: d.city,
           state: d.state,
           killed: d.killed,
+          injured: d.injured,
         }
       });
 
