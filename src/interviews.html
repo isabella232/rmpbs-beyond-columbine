@@ -12,7 +12,7 @@
     <%= t.include("partials/_nav.html", grunt.data.json) %>
 
     <article class="width-reg">
-      <h1>
+      <h1 class="big">
         <%= page.headline %>
       </h1>
 
@@ -44,8 +44,7 @@
             interviewees.forEach(function(interview) { %>
           <div class="interview ">
             <a href="interview-<%= interview.file_slug %>.html">
-              <!--<img src="<%= interview.image %>" alt="<%= interview.name %>">-->
-              <img src="https://placeimg.com/300/200/tech" alt="<%= interview.name %>">
+              <img src="<%= interview.image %>" alt="<%= interview.name %>">
               <h3><%= interview.name %></h3>
               <p><!-- interview.leadin --><%= interview.leadin %></p>
             </a>
