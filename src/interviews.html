@@ -1,0 +1,62 @@
+<!doctype html>
+<%
+  let page = archieml.interviews;
+  grunt.data.json.page = page;
+%>
+
+<html lang="en-US">
+  <head>
+    <%= t.include("partials/_head.html", grunt.data.json) %>
+  </head>
+  <body id="page-interviews">
+    <%= t.include("partials/_nav.html", grunt.data.json) %>
+
+    <article class="width-reg">
+      <h1>
+        <%= page.headline %>
+      </h1>
+
+      <h3>
+        <%= page.leadin %>
+      </h3>
+
+      <%= t.renderMarkdown(page.text) %>
+
+      <section id="interviews" class="">
+        <h2>Interviews</h2>
+        <div class="list">
+          <%
+            let interviewees = [
+              archieml.interview_aj,
+              archieml.interview_amber,
+              archieml.interview_coni,
+              archieml.interview_corrie,
+              archieml.interview_diwata,
+              archieml.interview_frank,
+              archieml.interview_heather,
+              archieml.interview_lance,
+              archieml.interview_makai,
+              archieml.interview_mallory,
+              archieml.interview_mike,
+              archieml.interview_mollie,
+              archieml.interview_randy
+            ];
+            interviewees.forEach(function(interview) { %>
+          <div class="interview ">
+            <a href="interview-<%= interview.file_slug %>.html">
+              <!--<img src="<%= interview.image %>" alt="<%= interview.name %>">-->
+              <img src="https://placeimg.com/300/200/tech" alt="<%= interview.name %>">
+              <h3><%= interview.name %></h3>
+              <p><!-- interview.leadin --><%= interview.leadin %></p>
+            </a>
+          </div>
+        <% }); %>
+        </div>
+      </section>
+    </article>
+
+    <%= t.include("partials/_footer.html", grunt.data.json) %>
+    <script src="app.js" async></script>
+    <%= t.include("partials/_analytics.html") %>
+  </body>
+</html>

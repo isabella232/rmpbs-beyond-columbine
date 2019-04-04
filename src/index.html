@@ -13,9 +13,9 @@
 		</section>
 
 		<section id="home-intro" class="width-reg">
-			<h1>Beyond Columbine</h1>
+			<h1><%= json.strings.home_title %></h1>
 
-			<p>Maecenas ac est dapibus, interdum justo sit amet, gravida enim. Etiam feugiat, lectus ac maximus venenatis, ante eros ornare lectus, vitae dapibus velit nibh ac magna. Quisque eu lacinia neque. Nunc feugiat purus ac rutrum iaculis. Nullam porttitor leo nec nisi vestibulum accumsan.</p>
+			<%= json.strings.home_paragraph %>
 		</section>
 
 		<section id="documentaries" class="width-reg">
@@ -53,7 +53,8 @@
 					interviewees.forEach(function(interview) { %>
 				<div class="grid-item interview col-3">
 					<a href="interview-<%= interview.file_slug %>.html">
-						<img src="<%= interview.image %>" alt="<%= interview.name %>">
+						<img src="https://placeimg.com/300/200/tech" alt="<%= interview.name %>">
+						<!--<img src="<%= interview.image %>" alt="<%= interview.name %>">-->
 						<h3><%= interview.name %></h3>
 					</a>
 				</div>

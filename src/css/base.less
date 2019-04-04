@@ -67,3 +67,14 @@ article#home section {
 img:not([alt]) {
   outline: 3px solid red;
 }
+
+.clearfix {
+	&::after {
+		content: "";
+		display: block;
+		clear: both;
+		visibility: hidden;
+		line-height: 0;
+		height: 0;
+	}
+}
