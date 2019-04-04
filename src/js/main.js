@@ -18,6 +18,8 @@
     var url = "https://cdn.jsdelivr.net/npm/us-atlas@2/us/states-10m.json";
 
     var width = window.innerWidth;
+    var height = width*0.67;
+    var centered;
 
 
     // create area for map
@@ -63,7 +65,8 @@
         .selectAll("path")
         .data(topojson.feature(us, us.objects.states).features)
         .enter().append("path")
-          .attr("d", path);
+          .attr("d", path)
+          .on("click", zoomstate);
 
       svg.append("path")
           .attr("class", "state-borders")
@@ -88,6 +91,34 @@
         .attr("transform", function(d) {
           return "translate(" + projection([+d.long, +d.lat]) + ")";
         });
+
+
+
+        // function for zooming into map
+      function zoomstate(d) {
+        var x, y, k;
+
+        if (d && centered !== d) {
+          var centroid = path.centroid(d);
+          x = centroid[0];
+          y = centroid[1];
+          k = 4;
+          centered = d;
+        } else {
+          x = width / 2;
+          y = height / 2;
+          k = 1;
+          centered = null;
+        }
+
+        svg.selectAll("path")
+            .classed("active", centered && function(d) { return d === centered; });
+
+        svg.transition()
+            .duration(750)
+            .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")scale(" + k + ")translate(" + -x + "," + -y + ")")
+            .style("stroke-width", 1.5 / k + "px");
+      }
 
 
 
