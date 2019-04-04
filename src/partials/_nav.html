@@ -1,8 +1,21 @@
 <nav id="header-nav">
-	<ul>
-		<li class="site"><a href="<%= project.url %>"><%= project.title %></a></li>
-		<li class=""><a href="one.html">Documentaries</a></li>
-		<li class=""><a href="">Interviews</a></li>
-		<li class=""><a href="">Interactive</a></li>
-	</ul>
+	<div class="navbar-upper">
+		<a href="<%= project.url %>" class="site"><%= project.title %></a>
+	</div>
+	<div class="navbar-lower">
+		<div class="navbar-left">
+			<ul>
+				<li class=""><a href="one.html">Documentaries</a></li>
+				<li class=""><a href="">Interviews</a></li>
+				<li class=""><a href="">Interactive</a></li>
+			</ul>
+		</div>
+		<div class="navbar-right">
+			<ul>
+				<li class=""><a href="one.html">Donate</a></li>
+				<li class=""><a href="">X</a></li>
+				<li class=""><a href="">Y</a></li>
+			</ul>
+		</div>
+	</div>
 </nav>
