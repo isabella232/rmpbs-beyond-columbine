@@ -3,6 +3,40 @@
   background-color: @darkpurple;
   .gutter();
 
+  .navbar-upper {
+    text-align:center;
+    display: block;
+
+    a.site {
+
+          text-transform:uppercase;
+          text-decoration:none;
+          font-weight:bold;
+          font-size:3rem;
+          color:white;
+        
+      }
+  }
+
+  .navbar-lower {
+    position: relative;
+    height: 56px;
+  }
+
+  .navbar-left {
+    position:absolute;
+    top:0;
+    left:0;
+  }
+
+  
+
+  .navbar-right {
+    position:absolute;
+    top:0;
+    right:0;
+  }
+
   ul {
     margin: 0;
     padding: 0;
@@ -12,14 +46,7 @@
       text-transform: uppercase;
       font-weight: 700;
 
-      &.site {
-        a {
-          text-transform:uppercase;
-          text-decoration:none;
-          font-weight:bold;
-          font-size:26px;
-        }
-      }
+      
       a {
           color:white;
           text-decoration: none;
