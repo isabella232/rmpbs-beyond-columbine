@@ -1,14 +1,14 @@
 <!doctype html>
 <html lang="en-US">
-  <head>
-    <%= t.include("partials/_head.html", grunt.data.json) %>
-  </head>
-  <body>
-    <%= t.include("partials/_nav.html", grunt.data.json) %>
-    <article id="home">
-    	<section id="hero-video-container">
-	    	<video muted autoplay loop id="hero-video"> 
-			  <source src="assets/drone.mp4" type="video/mp4">
+	<head>
+		<%= t.include("partials/_head.html", grunt.data.json) %>
+	</head>
+	<body>
+	<%= t.include("partials/_nav.html", grunt.data.json) %>
+	<article id="home">
+		<section id="hero-video-container">
+			<video muted autoplay loop id="hero-video"> 
+				<source src="assets/drone.mp4" type="video/mp4">
 			</video>
 		</section>
 
@@ -21,43 +21,61 @@
 		<section id="documentaries" class="width-reg">
 			<h2>Documentaries</h2>
 			<div class="grid-4">
-			    <% csv.docData.forEach(function(doc) { %>
-			    <div class="grid-item doc">
-				    <img src="<%= doc.thumbnail %>" alt="<%= doc.name %>">	
-				    <h3><%= doc.name %></h3>
-				    <p><%= doc.description %></p>
+				<% csv.docData.forEach(function(doc) { %>
+				<div class="grid-item doc">
+					<img src="<%= doc.thumbnail %>" alt="<%= doc.name %>">
+					<h3><%= doc.name %></h3>
+					<p><%= doc.description %></p>
 				</div>
-			    <% }); %>
+				<% }); %>
 			</div>
 		</section>
 
 		<section id="interviews" class="width-reg">
 			<h2>Interviews</h2>
 			<div class="grid-4">
-			    <% csv.interviewData.forEach(function(interview) { %>
-			    <div class="grid-item interview col-3">
-				    <img src="<%= interview.thumbnail %>" alt="<%= interview.name %>">	
-				    <h3><%= interview.name %></h3>
+				<%
+					let interviewees = [
+						archieml.interview_aj,
+						archieml.interview_amber,
+						archieml.interview_coni,
+						archieml.interview_corrie,
+						archieml.interview_diwata,
+						archieml.interview_frank,
+						archieml.interview_heather,
+						archieml.interview_lance,
+						archieml.interview_makai,
+						archieml.interview_mallory,
+						archieml.interview_mike,
+						archieml.interview_mollie,
+						archieml.interview_randy
+					];
+					interviewees.forEach(function(interview) { %>
+				<div class="grid-item interview col-3">
+					<a href="interview-<%= interview.file_slug %>.html">
+						<img src="<%= interview.image %>" alt="<%= interview.name %>">
+						<h3><%= interview.name %></h3>
+					</a>
 				</div>
-		    <% }); %>
+			<% }); %>
 			</div>
 		</section>
 
 		<section id="more" class="width-reg">
 			<h2>More</h2>
 			<div class="grid-3">
-		    <% csv.moreData.forEach(function(more) { %>
-			    <div class="grid-item more col-3">
-				    <img src="<%= more.thumbnail %>" alt="<%= more.name %>">	
-				    <h3><%= more.name %></h3>
+			<% csv.moreData.forEach(function(more) { %>
+				<div class="grid-item more col-3">
+					<img src="<%= more.thumbnail %>" alt="<%= more.name %>">	
+					<h3><%= more.name %></h3>
 				</div>
-		    <% }); %>
+			<% }); %>
 			</div>
 		</section>
 	</article>
 
-    <%= t.include("partials/_footer.html", grunt.data.json) %>
-    <script src="app.js" async></script>
-    <%= t.include("partials/_analytics.html") %>
-  </body>
+		<%= t.include("partials/_footer.html", grunt.data.json) %>
+		<script src="app.js" async></script>
+		<%= t.include("partials/_analytics.html") %>
+	</body>
 </html>
