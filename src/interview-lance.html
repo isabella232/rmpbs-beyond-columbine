@@ -1,6 +1,6 @@
 <!doctype html>
 <%
-  let page = archieml.demo_article;
+  let page = archieml.interview_lance;
   grunt.data.json.page = page;
 %>
 
@@ -11,7 +11,7 @@
   <body>
     <%= t.include("partials/_nav.html", grunt.data.json) %>
 
-    <article  class="width-reg">
+    <article>
       <h1>
         <%= page.headline %>
       </h1>

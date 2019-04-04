@@ -19,10 +19,26 @@
   "description": "",
   "url": "/",
   "image": "assets/logo.png",
-  "sheets": [],
+  "sheets": [
+    "1vU7hBhCcORFAnXFGUqgFpYXG1U1sh9OAPI3BebEfJeE"
+  ],
   "docs": [
+    "1fc6ZfgDcknbUmu3UOONr9YYzkaBTicGf3lakzwh0M-0",
+    "1STVYXXNd6XRCdT1R4Le_L6O6LHK0bK6U-NV7Og39WEE",
+    "1gLKyoqY_C9PHQMHCDbf_Ut5yNntZKcMN2JhV8vgy4BE",
+    "1oeiRhE38Ikun92mhIe1z67GsSx1zbD_gesL_24wbxjQ",
+    "1jgkS7A47CXiawIYfP56cx8i-rRCz8dcdcRuv_XZTJK0",
+    "1PRz_Py5sYdXeDS3kTw-bvtLzFOSAEBot2CZGYsKOiWs",
+    "1xX3XD-N0IJBnoMYNr_NwfLzhSLMD8Cj_Vyc6cHWwGi8",
+    "1Xf-3_nbsqOM2AoNVIh5FZknCrlPKVgJdeB2befSI22E",
+    "15lDlI_bLi800xBJILCoRQgvJgFdWWDc_Ek2mwOpOv-Q",
+    "1tFGR94NvMQ0wXBWDOsF3cN8MowoAcjSx46PFmIqNic8",
+    "1nTwp0K74mfnx5iMUW7mCnpQXYnkQ5CxiAAV2itANquU",
+    "1k---AyYVTDGZ3YzyBfeWT702VNgJtz25T0YeZY-2wBA",
+    "1izvnURrZQdfqCgYFpA-43UVmoLRHzufxvPvyNFXvTH0",
+
     "1OUm2JFsm1bMRqSmZSz9I_cxQfzrwU73a619OIf1Au2E"
   ],
-  "embedded": true,
+  "embedded": false,
   "production": false
 }
