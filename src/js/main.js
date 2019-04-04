@@ -242,13 +242,19 @@
       var headerClick = false;
 
       tableheaders.on("click",function() {
-        value = this.innerHTML;
+
+        d3.selectAll(".tablearrow").remove();
+
+        value = d3.select(this).attr("data-cat");
+
         if (headerClick == false) {
           headerClick = true;
+          d3.select(this).append("span").attr("class","tablearrow").html('&#x25BC;');
           shootingsTable = shootingsTable.sort(function(a,b){return d3.descending(a[value], b[value]); });
           drawTable(shootingsTable);
         } else {
           headerClick = false;
+          d3.select(this).append("span").attr("class","tablearrow").html('&#x25B2;');
           shootingsTable = shootingsTable.sort(function(a,b){return d3.ascending(a[value], b[value]); });
           drawTable(shootingsTable);
         }
