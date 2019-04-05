@@ -175,7 +175,7 @@
       // create function for the dropdown filtering
       var filterData = function() {
           // get selected state
-          var selectedState = d3.select(this).property('value');
+          var selectedState = d3.select("#filter select").property('value');
 
           // fade out table data for other states, bring back selected state (while making sure our even/odd background look stays intact)
           d3.selectAll("tbody tr:nth-child(odd)").style("background-color", "white");
@@ -252,11 +252,13 @@
           d3.select(this).append("span").attr("class","tablearrow").html('&#x25BC;');
           shootingsTable = shootingsTable.sort(function(a,b){return d3.descending(a[value], b[value]); });
           drawTable(shootingsTable);
+          filterData();
         } else {
           headerClick = false;
           d3.select(this).append("span").attr("class","tablearrow").html('&#x25B2;');
           shootingsTable = shootingsTable.sort(function(a,b){return d3.ascending(a[value], b[value]); });
           drawTable(shootingsTable);
+          filterData();
         }
         
       })
