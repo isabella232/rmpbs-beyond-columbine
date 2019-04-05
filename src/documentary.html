@@ -1,0 +1,51 @@
+<!doctype html>
+<%
+  let page = archieml.documentary;
+  grunt.data.json.page = page;
+%>
+
+<html lang="en-US">
+  <head>
+    <%= t.include("partials/_head.html", grunt.data.json) %>
+  </head>
+  <body id="page-documentary">
+    <%= t.include("partials/_nav.html", grunt.data.json) %>
+
+    <article class="width-reg">
+      <h1 class="big">
+        <%= page.headline %>
+      </h1>
+
+      <h3>
+        <%= page.leadin %>
+      </h3>
+
+      <%= t.renderMarkdown(page.text) %>
+
+      <section id="documentaries" class="">
+        <h2>Interviews</h2>
+        <div class="list">
+          <%
+            let documentaries = [
+              archieml.documentary_1,
+              archieml.documentary_2,
+              archieml.documentary_3
+            ];
+            documentaries.forEach(function(documentary) { %>
+          <div class="documentary ">
+            <a href="<%= documentary.file_slug %>.html">
+              <img src="<%= documentary.image %>" alt="<%= documentary.name %>">
+              <h3><%= documentary.name %></h3>
+              <p><!-- documentary.leadin --><%= documentary.leadin %></p>
+            </a>
+          </div>
+        <% }); %>
+        </div>
+      </section>
+    </article>
+
+    <%= t.include("partials/_footer.html", grunt.data.json) %>
+    <script src="app.js" async></script>
+    <%= t.include("partials/_analytics.html") %>
+  </body>
+</html>

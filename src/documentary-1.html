@@ -1,0 +1,43 @@
+<!doctype html>
+<%
+  let page = archieml.documentary_1;
+  grunt.data.json.page = page;
+%>
+
+<html lang="en-US">
+  <head>
+    <%= t.include("partials/_head.html", grunt.data.json) %>
+  </head>
+  <body>
+    <%= t.include("partials/_nav.html", grunt.data.json) %>
+
+    <article class="width-reg">
+      <h1>
+        <%= page.headline %>
+      </h1>
+      <h3>
+        <%= page.leadin %>
+      </h3>
+
+      <iframe
+        width="560"
+        height="315"
+        src="https://www.youtube-nocookie.com/embed/<%= page.video_slug %>"
+        frameborder="0"
+        allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+      </iframe>
+
+      <details>
+        <summary>Video transcript</summary>
+        <%= t.renderMarkdown(page.text) %>
+      </details>
+
+      <%= t.renderMarkdown(page.text) %>
+    </article>
+
+    <%= t.include("partials/_footer.html", grunt.data.json) %>
+    <script src="app.js" async></script>
+    <%= t.include("partials/_analytics.html") %>
+  </body>
+</html>
