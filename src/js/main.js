@@ -60,6 +60,7 @@
           lat: d.lat,
           long: d.long,
           date: d.date,
+          school_name: d.school_name,
           city: d.city,
           state: d.state,
           killed: d.killed,
@@ -110,7 +111,8 @@
         div.transition()    
           .duration(250)    
           .style("opacity", .9);    
-        div.html(d.city + ", " + d.state + 
+        div.html(d.school_name + 
+          "<br/>" + d.city + ", " + d.state + 
           "<br/>" + d.killed + " killed, " + d.injured + " injured" +
           "<br/>" + d.date
           )  
@@ -171,27 +173,43 @@
           return ((x < y) ? -1 : ((x > y) ? 1 : 0));
       });
 
+      // if you change this, be sure to also change it in the below filterData function!
+      shootingsByState.unshift({
+        key: "View All States",
+        value: null
+      })
+
+      console.log(shootingsByState);
+
 
       // create function for the dropdown filtering
       var filterData = function() {
           // get selected state
-          var selectedState = d3.select("#filter select").property('value');
+          var selectedState = d3.select("#filtercontainer select").property('value');
 
           // fade out table data for other states, bring back selected state (while making sure our even/odd background look stays intact)
-          d3.selectAll("tbody tr:nth-child(odd)").style("background-color", "white");
-          d3.selectAll("table tbody tr").style("display", "none");
-          d3.selectAll("tbody tr." + selectedState).style("display", "table-row");
-          d3.selectAll("tbody tr." + selectedState).style("background-color", function(d,i) {
-            if (i % 2 == 0) {
-              return "#f0f0f0";
-            }
-          });
+          if (selectedState !== "View All States") {
+            d3.selectAll("tbody tr:nth-child(odd)").style("background-color", "white");
+            d3.selectAll("table tbody tr").style("display", "none");
+            d3.selectAll("tbody tr." + selectedState).style("display", "table-row");
+            d3.selectAll("tbody tr." + selectedState).style("background-color", function(d,i) {
+              if (i % 2 == 0) {
+                return "#f0f0f0";
+              }
+            });
+          } else {
+            d3.selectAll("table tbody tr").style("display", "table-row").style("background-color", function(d,i) {
+              if (i % 2 == 0) {
+                return "#f0f0f0";
+              }
+            });
+          }
 
 
       };
 
       // draw table filter dropdown
-      var dropdown = d3.select("#filter")
+      var dropdown = d3.select("#filtercontainer")
           .insert("select")
           .on("change", filterData);
 
@@ -207,6 +225,7 @@
       var shootingsTable = shootings.map(function(d) {
         return {
           date: d.date,
+          school_name: d.school_name,
           city: d.city,
           state: d.state,
           killed: d.killed,
