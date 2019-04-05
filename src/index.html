@@ -21,12 +21,20 @@
 		<section id="documentaries" class="width-reg">
 			<h2>Documentaries</h2>
 			<div class="grid-3">
-				<% csv.docData.forEach(function(doc) { %>
-				<div class="grid-item doc">
-					<img src="<%= doc.thumbnail %>" alt="<%= doc.name %>">
-					<h3><%= doc.name %></h3>
-					<p><%= doc.description %></p>
-				</div>
+				<%
+					let documentaries = [
+						archieml.documentary_1,
+						archieml.documentary_2,
+						archieml.documentary_3
+					];
+					documentaries.forEach(function(documentary) { %>
+					<div class="grid-item doc">
+						<a href="<%= documentary.file_slug %>.html">
+							<img src="<%= documentary.image %>" alt="<%= documentary.name %>">
+							<h3><%= documentary.name %></h3>
+							<p><%= documentary.description %></p>
+						</a>
+					</div>
 				<% }); %>
 			</div>
 		</section>
@@ -51,25 +59,31 @@
 						archieml.interview_randy
 					];
 					interviewees.forEach(function(interview) { %>
-				<div class="grid-item interview col-3">
-					<a href="interview-<%= interview.file_slug %>.html">
-						<img src="<%= interview.image %>" alt="<%= interview.name %>">
-						<h3><%= interview.name %></h3>
-					</a>
-				</div>
-			<% }); %>
+					<div class="grid-item interview col-3">
+						<a href="interview-<%= interview.file_slug %>.html">
+							<img src="<%= interview.image %>" alt="<%= interview.name %>">
+							<h3><%= interview.name %></h3>
+						</a>
+					</div>
+				<% }); %>
 			</div>
 		</section>
 
 		<section id="more" class="width-reg">
 			<h2>More</h2>
 			<div class="grid-3">
-			<% csv.moreData.forEach(function(more) { %>
-				<div class="grid-item more col-3">
-					<img src="<%= more.thumbnail %>" alt="<%= more.name %>">	
-					<h3><%= more.name %></h3>
-				</div>
-			<% }); %>
+				<%
+					let mores = [
+						archieml.community_documentary
+					];
+					mores.forEach(function(more) { %>
+					<div class="grid-item more col-3">
+						<a href="<%= more.file_slug %>.html">
+							<img src="<%= more.image %>" alt="<%= more.name %>">
+							<h3><%= more.name %></h3>
+						</a>
+					</div>
+				<% }); %>
 			</div>
 		</section>
 	</article>
