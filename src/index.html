@@ -7,7 +7,7 @@
 	<%= t.include("partials/_nav.html", grunt.data.json) %>
 	<article id="home">
 		<section id="hero-video-container">
-			<video muted autoplay loop id="hero-video"> 
+			<video muted autoplay id="hero-video"> 
 				<source src="assets/drone.mp4" type="video/mp4">
 			</video>
 		</section>
@@ -28,10 +28,11 @@
 						archieml.documentary_3
 					];
 					documentaries.forEach(function(documentary) { %>
-					<div class="grid-item documentary col-4">
+					<div class="grid-item doc">
 						<a href="<%= documentary.file_slug %>.html">
 							<img src="<%= documentary.image %>" alt="<%= documentary.name %>">
 							<h3><%= documentary.name %></h3>
+							<p><%= documentary.description %></p>
 						</a>
 					</div>
 				<% }); %>
@@ -39,7 +40,7 @@
 		</section>
 
 		<section id="interviews" class="width-reg">
-			<h2>Interviews</h2>
+			<h2>Extended Interviews</h2>
 			<div class="grid-4">
 				<%
 					let interviewees = [

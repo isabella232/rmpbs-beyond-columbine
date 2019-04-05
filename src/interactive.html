@@ -15,11 +15,13 @@
           <h3>Data Interactive Title</h3>
           <p>Here's the intro text for the interactive component.</p>
           <p>Use the dropdown below to filter the data by state.</p>  
+          <div id="filtercontainer"></div>
+          <p><i>SOURCE: <a href="https://github.com/washingtonpost/data-school-shootings">The Washington Post's school shootings database</a>.</i></p>
         </div>
   		  <div id="table">
   		    <table class="objecttable">
   			     <thead>
-  			      	<tr><th data-cat="date">Date</th><th data-cat="city">City</th><th data-cat="state">State</th><th data-cat="killed">Killed</th><th data-cat="injured">Injured</th></tr>
+  			      	<tr><th data-cat="date">Date</th><th data-cat="school_name">School</th><th data-cat="city">City</th><th data-cat="state">State</th><th data-cat="killed">Killed</th><th data-cat="injured">Injured</th></tr>
   			     </thead>
   			     <tbody></tbody>
   		    </table>
