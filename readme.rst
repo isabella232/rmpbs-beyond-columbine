@@ -28,9 +28,7 @@ Like all interactive-template projects, this application uses the Grunt task run
 
 Common tasks that you may want to run include:
 
-* ``sheets`` - updates local data from Google Sheets
-* ``docs`` - updates local data from Google Docs
-* ``google-drive`` - updates local data from both Sheets and Docs
+* ``google-drive`` - updates local data from both Sheets and Docs, and from Sheets updates the data in the interactive.
 * ``google-auth`` - authenticates your account against Google for private files
 * ``static`` - rebuilds files but doesn't start the dev server
 * ``cron`` - runs builds and deploys on a timer (see ``tasks/cron.js`` for details)
