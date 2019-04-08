@@ -3,7 +3,7 @@ module.exports = function(grunt) {
   //load tasks
   grunt.loadTasks("./tasks");
 
-  grunt.registerTask("google-drive", "Fetch all Google-based assets", ["docs", "sheets"]);
+  grunt.registerTask("google-drive", "Fetch all Google-based assets", ["docs", "sheets", "update-shootings"]);
   grunt.registerTask("content", "Load content from data files", ["state", "json", "csv", "markdown", "archieml"]);
   grunt.registerTask("template", "Build HTML from content/templates", ["content", "build"]);
   grunt.registerTask("static", "Build all files", ["copy", "bundle", "less", "template"]);
