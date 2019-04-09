@@ -13,7 +13,8 @@
     "src/css/seed.less": "build/style.css"
   },
   "scripts": {
-    "src/js/main.js": "build/app.js"
+    "src/js/main.js": "build/app.js",
+    "src/js/video.js": "build/video.js"
   },
   "title": "Beyond Columbine",
   "description": "",

@@ -1,0 +1,46 @@
+<!doctype html>
+<%
+  let page = archieml.demo_article;
+  grunt.data.json.page = page;
+%>
+
+<html lang="en-US">
+  <head>
+    <%= t.include("partials/_head.html", grunt.data.json) %>
+    <link href="https://vjs.zencdn.net/7.4.1/video-js.css" rel="stylesheet">
+  </head>
+  <body>
+    <%= t.include("partials/_nav.html", grunt.data.json) %>
+
+    <article class="width-reg">
+      <h1>
+        <%= page.headline %>
+      </h1>
+      <h3>
+        <%= page.leadin %>
+      </h3>
+
+      <video
+        id="video"
+        class="video-js vjs-default-skin"
+        controls
+        autoplay
+        width="560"
+        height="315"
+        data-youtube="https://www.youtube.com/watch?v=<%= page.video_slug %>"
+      >
+      </video>
+
+      <details>
+        <summary>Video transcript</summary>
+        <%= t.renderMarkdown(page.transcript) %>
+      </details>
+
+      <%= t.renderMarkdown(page.text) %>
+    </article>
+
+    <%= t.include("partials/_footer.html", grunt.data.json) %>
+    <script src="video.js" async></script>
+    <%= t.include("partials/_analytics.html") %>
+  </body>
+</html>
