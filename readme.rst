@@ -21,6 +21,10 @@ With those installed, you can then set the project up using your terminal:
 #. Run ``grunt google-auth`` to get permissions to download files from Google Drive. You may need to create Google Auth credentials; the applicaiton for this is in https://console.cloud.google.com/apis/credentials?project=rmpbs-beyond-columbine&folder&organizationId=363836889409 and can be installed via http://blog.apps.npr.org/2015/03/02/app-template-oauth.html .
 #. Run ``grunt google-drive`` to get copies of all the assets hosted in Google Drive.
 
+To deploy:
+
+#. `grunt google-drive static publish`
+
 Running tasks
 -------------
 
