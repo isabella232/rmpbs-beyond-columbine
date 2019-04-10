@@ -1,11 +1,21 @@
 #site-footer {
   background-color: @gray;
-  padding:@gutter * 3;
+  padding:@gutter;
 
-  > div.grid-2 {
-    display: grid;
-    grid-template-columns: 1fr 4fr;
+  > div.grid-2-offset {
     gap: 8rem;
+    margin-bottom: 8rem;
+  }
+  @media (max-width: 768px) {
+    .grid-3 {
+      gap: 0;
+    }
+    .empty {
+      display: none;
+    }
+    ul {
+      margin: 0;
+    }
   }
 
   p {
@@ -20,6 +30,7 @@
 
   img {
     width:100%;
+    max-width: 320px;
   }
 
   a {
@@ -35,6 +46,7 @@
 
   ul {
     list-style-type: none;
+    padding-left: 0;
   }
 
   li {
