@@ -29,7 +29,7 @@
 /*
  * Units
  */
-@gutter: 1rem;
+@gutter: 3rem;
 .gutter {
   padding-left: @gutter;
   padding-right: @gutter;
@@ -48,7 +48,7 @@
 .width-narrow {
 	max-width:900px;
 	margin:0 auto;
-	padding:0 (@gutter*3);
+	padding:0 @gutter;
 	clear:both;
 }
 
@@ -70,25 +70,25 @@
 .grid-2-offset {
 	display: grid;
     grid-template-columns: 1fr 2fr;
-  	grid-gap: @gutter * 3;
+  	grid-gap: @gutter;
 }
 
 .grid-2 {
 	display: grid;
     grid-template-columns: repeat(2, 1fr);
-  	grid-gap: @gutter * 3;
+  	grid-gap: @gutter;
 }
 
 .grid-3 {
 	display: grid;
     grid-template-columns: repeat(3, 1fr);
-  	grid-gap: @gutter * 3;
+  	grid-gap: @gutter;
 }
 
 .grid-4 {
 	display: grid;
     grid-template-columns: repeat(4, 1fr);
-  	grid-gap: @gutter * 3;
+  	grid-gap: @gutter;
 }
 
 .grid-2, .grid-2-offset, .grid-3, .grid-4 {
