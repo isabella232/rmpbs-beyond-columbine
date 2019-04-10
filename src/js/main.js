@@ -179,9 +179,6 @@
         value: null
       })
 
-      console.log(shootingsByState);
-
-
       // create function for the dropdown filtering
       var filterData = function() {
           // get selected state
