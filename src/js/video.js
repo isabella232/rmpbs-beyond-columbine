@@ -8,6 +8,7 @@ const player = videojs( 'video', {
   preload: 'auto',
   controls: true,
   autoplay: true,
+  fluid: true,
   techOrder: ['html5', 'youtube']
 });
 player.src({
