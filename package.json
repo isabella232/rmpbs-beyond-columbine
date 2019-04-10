@@ -31,7 +31,10 @@
     "resolve": "^1.1.7",
     "shelljs": "^0.6.0",
     "through2": "^2.0.0",
-    "typogr": "^0.6.4"
+    "typogr": "^0.6.4",
+    "video.js": "^7.4.1",
+    "videojs-overlay": "^2.1.4",
+    "videojs-youtube": "^2.6.0"
   },
   "browser": {
     "share": "./src/js/lib/share.min.js",

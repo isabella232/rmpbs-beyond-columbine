@@ -13,7 +13,8 @@
     "src/css/seed.less": "build/style.css"
   },
   "scripts": {
-    "src/js/main.js": "build/app.js"
+    "src/js/main.js": "build/app.js",
+    "src/js/video.js": "build/video.js"
   },
   "title": "Beyond Columbine",
   "description": "",
@@ -45,7 +46,9 @@
 
     "1Pd9LGWOu-O81K7zB4EZcyZJJAislTyYf2utbLhvJZ7A",
 
-    "1jFqY0tEf-6Vz3CDTuQ9pF2yxSO6Yqzn803W9_dNcdAY"
+    "1jFqY0tEf-6Vz3CDTuQ9pF2yxSO6Yqzn803W9_dNcdAY",
+
+    "1OUm2JFsm1bMRqSmZSz9I_cxQfzrwU73a619OIf1Au2E"
   ],
   "embedded": false,
   "production": false

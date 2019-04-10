@@ -14,3 +14,18 @@
 		}
 	}
 }
+details {
+	margin-top: 1em;
+	padding: 1em;
+	border: solid 1px transparent;
+	summary {
+		padding: 0.3em;
+		border: solid 1px black;
+		font-size: 16px;
+		background-color: white;
+	}
+	&[open] {
+		background-color: rgba( 0,0,0, 0.05 );
+		border-color: black;
+	}
+}
