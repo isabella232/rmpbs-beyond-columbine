@@ -26,3 +26,9 @@ player.overlay({
   align: "top-right",
   showBackground: true
 });
+console.log(window.location.hash);
+if ( window.location.hash.match(/^#t=/) ) {
+  var hashes = window.location.hash.split('=');
+  var time = Number(hashes[1]);
+  player.currentTime( time )
+}
