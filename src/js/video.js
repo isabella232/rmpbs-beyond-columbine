@@ -19,7 +19,9 @@ player.src({
   }
 });
 player.overlay({
+  debug: true,
   overlays: window.annotations,
   attachToControlBar: true,
-  align: "bottom-right"
+  align: "top-right",
+  showBackground: true
 });
