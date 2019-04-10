@@ -42,7 +42,7 @@
     <%= t.include("partials/_footer.html", grunt.data.json) %>
     <% if ( page.annotations ) { %>
       <script>
-        var annotations = <%= JSON.stringify( page.annotations ) %>
+        var annotations = <%= JSON.stringify( t.formatAnnotations( page.annotations ) ) %>
       </script>
     <% } %>
     <script src="video.js" async></script>

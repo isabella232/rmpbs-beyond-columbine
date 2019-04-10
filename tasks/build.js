@@ -35,6 +35,17 @@ module.exports = function(grunt) {
     return s.replace(/^(-)?/, function(_, captured) { return (captured || "") + "$" });
   };
 
+  grunt.template.formatAnnotations = function(annotations) {
+    annotations.forEach( function(annotation) {
+      for ( var key in annotation ) {
+        if ( key === "start" || key === "end" ) {
+          annotation[key] = Number(annotation[key]);
+        }
+      }
+    });
+    return annotations;
+  };
+
   grunt.template.include = function(where, data) {
     grunt.verbose.writeln(" - Including file: " +  where);
     var file = grunt.file.read(path.resolve("src/", where));
