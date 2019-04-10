@@ -40,6 +40,11 @@
     </article>
 
     <%= t.include("partials/_footer.html", grunt.data.json) %>
+    <% if ( page.annotations ) { %>
+      <script>
+        var annotations = <%= JSON.stringify( page.annotations ) %>
+      </script>
+    <% } %>
     <script src="video.js" async></script>
     <%= t.include("partials/_analytics.html") %>
   </body>
