@@ -7,6 +7,7 @@
 <html lang="en-US">
   <head>
     <%= t.include("partials/_head.html", grunt.data.json) %>
+    <link href="https://vjs.zencdn.net/7.4.1/video-js.css" rel="stylesheet">
   </head>
   <body>
     <%= t.include("partials/_nav.html", grunt.data.json) %>
@@ -19,25 +20,11 @@
         <%= page.leadin %>
       </h3>
 
-      <iframe
-        width="560"
-        height="315"
-        src="https://www.youtube-nocookie.com/embed/<%= page.video_slug %>"
-        frameborder="0"
-        allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen>
-      </iframe>
-
-      <details>
-        <summary>Video transcript</summary>
-        <%= t.renderMarkdown(page.transcript) %>
-      </details>
-
+      <%= t.include("partials/_video_helper.html", grunt.data.json) %>
       <%= t.renderMarkdown(page.text) %>
     </article>
 
     <%= t.include("partials/_footer.html", grunt.data.json) %>
-    <script src="app.js" async></script>
     <%= t.include("partials/_analytics.html") %>
   </body>
 </html>
