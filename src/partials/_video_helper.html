@@ -1,0 +1,27 @@
+<% if ( typeof page !== 'undefined' ) { %>
+  <video
+    id="video"
+    class="video-js vjs-default-skin vjs-big-play-centered"
+    controls
+    width="560"
+    height="315"
+    data-youtube="https://www.youtube.com/watch?v=<%= page.video_slug %>"
+  >
+  </video>
+
+  <% if ( typeof page.transcript !== 'undefined' ) { %>
+    <details>
+      <summary>Video transcript</summary>
+      <%= t.renderMarkdown(page.transcript) %>
+    </details>
+  <% } %>
+
+  <% if ( page.annotations ) { %>
+    <script>
+      var annotations = <%= JSON.stringify( t.formatAnnotations( page.annotations ) ) %>
+    </script>
+  <% } %>
+  <script src="video.js" async></script>
+<% } else { %>
+  <!-- no video this page, huh -->
+<% } %>
