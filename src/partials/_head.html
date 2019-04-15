@@ -20,6 +20,11 @@
   <% if ( typeof page !== 'undefined' ) { %>
 
     <!-- BEGIN TWITTER SUMMARY CARD -->
+    <%
+      if ( ( typeof page.image == 'undefined' || page.image == '' ) && typeof page.video_slug !== 'undefined' ) {
+        page.image = 'https://img.youtube.com/vi/' + page.video_slug + '/mqdefault.jpg';
+      }
+    %>
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="<%= page.title %>">
     <meta name="twitter:site" content="@rmpbs">
