@@ -30,8 +30,8 @@
 					documentaries.forEach(function(documentary) { %>
 					<div class="grid-item doc">
 						<a href="<%= documentary.file_slug %>.html">
-							<img src="<%= documentary.image %>" alt="<%= documentary.name %>">
-							<h3><%= documentary.name %></h3>
+							<img src="https://img.youtube.com/vi/<%= documentary.video_slug %>/mqdefault.jpg" alt="<%= documentary.name %>">
+							<h3><%= documentary.headline %></h3>
 							<p><%= documentary.description %></p>
 						</a>
 					</div>
@@ -61,7 +61,7 @@
 					interviewees.forEach(function(interview) { %>
 					<div class="grid-item interview col-3">
 						<a href="interview-<%= interview.file_slug %>.html">
-							<img src="<%= interview.image %>" alt="<%= interview.name %>">
+							<img src="https://img.youtube.com/vi/<%= interview.video_slug %>/mqdefault.jpg" alt="<%= interview.name %>">
 							<h3><%= interview.name %></h3>
 						</a>
 					</div>
@@ -79,8 +79,9 @@
 					mores.forEach(function(more) { %>
 					<div class="grid-item more col-3">
 						<a href="<%= more.file_slug %>.html">
-							<img src="<%= more.image %>" alt="<%= more.name %>">
-							<h3><%= more.name %></h3>
+							<img src="https://img.youtube.com/vi/<%= more.video_slug %>/mqdefault.jpg" alt="<%= more.title %>">
+							<h3><%= more.title %></h3>
+							<p><%= more.leading %></p>
 						</a>
 					</div>
 				<% }); %>
