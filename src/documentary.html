@@ -34,7 +34,7 @@
             documentaries.forEach(function(documentary) { %>
           <div class="documentary ">
             <a href="<%= documentary.file_slug %>.html">
-              <img src="<%= documentary.image %>" alt="<%= documentary.name %>">
+              <img src="https://img.youtube.com/vi/<%= documentary.video_slug %>/mqdefault.jpg" alt="<%= documentary.name %>">
               <h3><%= documentary.headline %></h3>
               <p><!-- documentary.leadin --><%= documentary.leadin %></p>
             </a>
