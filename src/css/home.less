@@ -37,6 +37,7 @@ h1.big {
 	}
 	.grid-4 {
 		grid-auto-flow: dense;
+		grid-gap: 0;
 		@media (max-width: 768px)  {
 			grid-template-columns: repeat( 2, 1fr );
 		}
@@ -53,10 +54,11 @@ h1.big {
 		}
 		h3 {
 			margin-bottom: 0;
-			padding: 0.5em;
 
-			position: absolute;
-			bottom: 0;
+			position: relative;
+			top: -2em;
+			margin-bottom: -2em;
+
 			line-height: 1;
 
 			color: white;
@@ -71,9 +73,18 @@ h1.big {
 
 			width: auto;
 			display: inline-block;
-			border-radius: 2px;
+			border-top-right-radius: 3px;
 			background: rgba( 0, 0, 0, 0.4 );
 			z-index: 10;
+		}
+		h3, p {
+			padding: 0.5em;
+		}
+		p {
+			margin-top: -2em;
+			color: white;
+			font-weight: normal;
+			margin-bottom: 0;
 		}
 	}
 	.grid-item:nth-child(1),
