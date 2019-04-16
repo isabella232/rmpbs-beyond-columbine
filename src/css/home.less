@@ -37,6 +37,9 @@ h1.big {
 	}
 	.grid-4 {
 		grid-auto-flow: dense;
+		@media (max-width: 768px)  {
+			grid-template-columns: repeat( 2, 1fr );
+		}
 	}
 	.grid-item {
 		a {
