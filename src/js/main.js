@@ -97,9 +97,9 @@
 
 
       function activateTooltip(d) {
-        div.transition()    
-          .duration(250)    
-          .style("opacity", .9);    
+        div.transition()
+          .duration(250)
+          .style("opacity", .9);
         div.html(d.school_name + 
           "<br/>" + d.city + ", " + d.state + 
           "<br/>" + d.killed + " killed, " + d.injured + " injured" +
@@ -117,7 +117,7 @@
 
 
 
-        // function for zooming into map
+      // function for zooming into map
       function zoomstate(d) {
         var x, y, k;
 
@@ -142,11 +142,6 @@
             .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")scale(" + k + ")translate(" + -x + "," + -y + ")")
             .style("stroke-width", 1.5 / k + "px");
       }
-
-
-
-
-
 
 
       // organize shootings by state to create dropdown
@@ -240,7 +235,8 @@
       }
 
 
-      function date_to_milliseconds( string ) {
+      // helper to turn a m/d/yyyy date into a sortable date
+      function date_to_Date( string ) {
         let a_date = string.split('/');
         a_date[0] = a_date[0] - 1 // 0-indexed months in Date's monthIndex
         return new Date( a_date[2], a_date[0], a_date[1] ) // yyyy, m, d
@@ -262,8 +258,8 @@
           d3.select(this).append("span").attr("class","tablearrow").html('&#x25BC;');
           shootingsTable = shootingsTable.sort(function(a,b){
             if ( value === 'date' ) {
-              let a_date = date_to_milliseconds( a[value] );
-              let b_date = date_to_milliseconds( b[value] );
+              let a_date = date_to_Date( a[value] );
+              let b_date = date_to_Date( b[value] );
 
               var ret = d3.descending( a_date, b_date );
             } else {
@@ -278,8 +274,8 @@
           d3.select(this).append("span").attr("class","tablearrow").html('&#x25B2;');
           shootingsTable = shootingsTable.sort(function(a,b){
             if ( value === 'date' ) {
-              let a_date = date_to_milliseconds( a[value] );
-              let b_date = date_to_milliseconds( b[value] );
+              let a_date = date_to_Date( a[value] );
+              let b_date = date_to_Date( b[value] );
 
               var ret = d3.ascending( a_date, b_date );
             } else {
