@@ -1,3 +1,6 @@
+article#home section {
+	margin-bottom: @gutter * 3;
+}
 #home-intro h1,
 h1.big {
 	font-size: 8rem;
@@ -21,4 +24,73 @@ h1.big {
   top: 0;
   left: 0;
   width: 100%;
+}
+
+#interviews {
+	background-color: black;
+	padding-top: 3rem;
+	padding-bottom: 3rem;
+	h2 {
+		color: white;
+		text-align: center;
+		margin-bottom: 3rem;
+	}
+	.grid-4 {
+		grid-auto-flow: dense;
+		grid-gap: 0;
+		@media (max-width: 768px)  {
+			grid-template-columns: repeat( 2, 1fr );
+		}
+	}
+	.grid-item {
+		a {
+			display: block;
+			text-decoration: none;
+			position: relative;
+		}
+		img {
+			margin-bottom: 0;
+			display: block;
+		}
+		h3 {
+			margin-bottom: 0;
+
+			position: relative;
+			top: -2em;
+			margin-bottom: -2em;
+
+			line-height: 1;
+
+			color: white;
+			text-shadow:
+				1px 1px 0 black,
+				1px -1px 0 black,
+				-1px 1px 0 black,
+				-1px -1px 0 black,
+				0 0 2px black,
+				0 0 3px black;
+			text-decoration: none;
+
+			width: auto;
+			display: inline-block;
+			border-top-right-radius: 3px;
+			background: rgba( 0, 0, 0, 0.4 );
+			z-index: 10;
+		}
+		h3, p {
+			padding: 0.5em;
+		}
+		p {
+			margin-top: -2em;
+			color: white;
+			font-weight: normal;
+			margin-bottom: 0;
+		}
+	}
+	.grid-item:nth-child(1),
+	.grid-item:nth-child(6),
+	.grid-item:nth-child(9) {
+		grid-column-end: span 2;
+		grid-row-end: span 2;
+	}
 }

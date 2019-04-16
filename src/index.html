@@ -63,6 +63,7 @@
 						<a href="interview-<%= interview.file_slug %>.html">
 							<img src="https://img.youtube.com/vi/<%= interview.video_slug %>/mqdefault.jpg" alt="<%= interview.name %>">
 							<h3><%= interview.name %></h3>
+							<p><%= interview.leadin %></p>
 						</a>
 					</div>
 				<% }); %>
@@ -81,7 +82,7 @@
 						<a href="<%= more.file_slug %>.html">
 							<img src="https://img.youtube.com/vi/<%= more.video_slug %>/mqdefault.jpg" alt="<%= more.title %>">
 							<h3><%= more.title %></h3>
-							<p><%= more.leading %></p>
+							<p><%= more.leadin %></p>
 						</a>
 					</div>
 				<% }); %>
