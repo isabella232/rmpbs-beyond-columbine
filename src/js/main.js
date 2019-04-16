@@ -243,9 +243,7 @@
       function date_to_milliseconds( string ) {
         let a_date = string.split('/');
         a_date[0] = a_date[0] - 1 // 0-indexed months in Date's monthIndex
-        let date = new Date( a_date[2], a_date[0], a_date[1] ) // yyyy, m, d
-
-        return date.getTime();
+        return new Date( a_date[2], a_date[0], a_date[1] ) // yyyy, m, d
       }
 
       // sort table when clicking on header
