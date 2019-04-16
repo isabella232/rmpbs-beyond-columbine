@@ -1,17 +1,6 @@
-// require("./lib/pym");
-
-
-
-
 // homepage effects still to come
 // fade in elements on scroll
 // do something with big page title
-
-
-
-
-
-
 
 // interactive javascript
     var data_url = require("./interactiveData");
@@ -30,7 +19,7 @@
     d3.select("#map").attr("style","height:" + (width*0.67) + "px")
 
     var div = d3.select("body").append("div") 
-    .attr("class", "tooltip")       
+    .attr("class", "tooltip")
     .style("opacity", 0);
 
 
@@ -251,6 +240,13 @@
       }
 
 
+      function date_to_milliseconds( string ) {
+        let a_date = string.split('/');
+        a_date[0] = a_date[0] - 1 // 0-indexed months in Date's monthIndex
+        let date = new Date( a_date[2], a_date[0], a_date[1] ) // yyyy, m, d
+
+        return date.getTime();
+      }
 
       // sort table when clicking on header
       var tableheaders = d3.selectAll("th");
@@ -266,13 +262,33 @@
         if (headerClick == false) {
           headerClick = true;
           d3.select(this).append("span").attr("class","tablearrow").html('&#x25BC;');
-          shootingsTable = shootingsTable.sort(function(a,b){return d3.descending(a[value], b[value]); });
+          shootingsTable = shootingsTable.sort(function(a,b){
+            if ( value === 'date' ) {
+              let a_date = date_to_milliseconds( a[value] );
+              let b_date = date_to_milliseconds( b[value] );
+
+              var ret = d3.descending( a_date, b_date );
+            } else {
+              var ret = d3.descending(a[value], b[value]);
+            }
+            return ret;
+          });
           drawTable(shootingsTable);
           filterData();
         } else {
           headerClick = false;
           d3.select(this).append("span").attr("class","tablearrow").html('&#x25B2;');
-          shootingsTable = shootingsTable.sort(function(a,b){return d3.ascending(a[value], b[value]); });
+          shootingsTable = shootingsTable.sort(function(a,b){
+            if ( value === 'date' ) {
+              let a_date = date_to_milliseconds( a[value] );
+              let b_date = date_to_milliseconds( b[value] );
+
+              var ret = d3.ascending( a_date, b_date );
+            } else {
+              var ret = d3.ascending(a[value], b[value]);
+            }
+            return ret;
+          });
           drawTable(shootingsTable);
           filterData();
         }
