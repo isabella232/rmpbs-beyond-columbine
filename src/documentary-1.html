@@ -25,6 +25,7 @@
       <%= t.renderMarkdown(page.text) %>
     </article>
 
+    <%= t.include("partials/_disqus.html") %>
     <%= t.include("partials/_footer.html", grunt.data.json) %>
     <%= t.include("partials/_analytics.html") %>
   </body>
