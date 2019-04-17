@@ -7,7 +7,7 @@ require("videojs-overlay");
 window.player = videojs( 'video', {
   preload: 'auto',
   controls: true,
-  autoplay: true,
+  autoplay: false,
   fluid: true,
   techOrder: ['html5', 'youtube']
 });
