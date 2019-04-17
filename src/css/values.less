@@ -15,6 +15,7 @@
  * Colors
  */
 
+@darkerpurple: #3f0280; // nabbed from the logo
 @darkpurple: #534f98;
 @lightpurple: #7059a6;
 @indigo: #0072ce;
@@ -33,6 +34,10 @@
 .gutter {
   padding-left: @gutter;
   padding-right: @gutter;
+  @media (max-width: 600px ) {
+    padding-left: @gutter * 2/3;
+    padding-right: @gutter * 2/3;
+  }
 }
 
 /*
@@ -41,7 +46,9 @@
 .width-reg {
 	max-width:1170px;
 	margin:0 auto;
-	padding: 0rem 3rem 5rem 3rem;
+	.gutter();
+	padding-top: 0rem;
+	padding-bottom: 5rem;
 	clear:both;
 }
 

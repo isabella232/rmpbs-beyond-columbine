@@ -1,60 +1,70 @@
 #header-nav {
-  line-height: 56px;
+  line-height: 46px;
+  @media ( min-width: 500px ) {
+    line-height: 56px;
+  }
   background-color: @darkpurple;
   .gutter();
 
   .navbar-upper {
     padding-top: 1rem;
-    text-align:center;
+    text-align: center;
     display: block;
+    vertical-align: middle;
+
+    img {
+      width: 420px;
+      margin: 0 auto;
+      display: block;
+    }
 
     a.site {
-
-          text-transform:uppercase;
-          text-decoration:none;
-          font-weight:bold;
-          font-size:3rem;
-          color:white;
-        
-      }
+      text-transform:uppercase;
+      text-decoration:none;
+      font-weight:bold;
+      font-size:3rem;
+      color:white;
+      display: block;
+    }
   }
 
   .navbar-lower {
     position: relative;
-    height: 70px;
   }
 
   .navbar-left {
-    position:absolute;
-    top:0;
-    left:0;
+    display: inline-block;
+    word-spacing: 1.75rem; // inter-li spacing
   }
 
-  
-
   .navbar-right {
-    position:absolute;
-    top:0;
-    right:0;
+    float: right;
+    word-spacing: 1rem;
   }
 
   ul {
     margin: 0;
-    padding: 1rem 0;
+    padding: 0;
     li {
-      display: inline;
+      display: inline-block;
       font-size: 1.5rem;
       text-transform: uppercase;
       font-weight: 700;
+      color:white;
+      text-shadow:
+         1px  1px 2px @darkerpurple,
+        -1px  1px 2px @darkerpurple,
+         1px -1px 2px @darkerpurple,
+        -1px -1px 2px @darkerpurple,
+         3px  3px 1px black;
+      ;
 
-      
       a {
           color:white;
           text-decoration: none;
+          text-shadow: inherit;
       }
     }
-    li + li {
-      margin-left: 1.75rem;
-    }
   }
+
 }
