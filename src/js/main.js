@@ -216,6 +216,25 @@
 
       drawTable(shootingsTable);
 
+      // function to retreive all values from an object
+      function get_object_values(object){
+
+        // init empty arr for our values
+        var object_values = [];
+
+        // map object values
+        Object.keys(object).map(function(value){
+
+          // push value to object_values arr
+          object_values.push(object[value]);
+
+        });
+
+        // return all object values
+        return object_values;
+
+      }
+
       // draw table
       function drawTable(tabledata) {
         table.selectAll("tr").remove();
@@ -229,7 +248,7 @@
         d3.selectAll("tbody tr:nth-child(odd)").style("background-color", "#f0f0f0");
 
         var td = tr.selectAll("td")
-         .data(function(d, i) { return Object.values(d); })
+         .data(function(d, i) { return get_object_values(d); })
          .enter().append("td")
            .text(function(d) { return d; });
       }
