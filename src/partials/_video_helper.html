@@ -1,4 +1,4 @@
-<% if ( typeof page !== 'undefined' ) { %>
+<% if ( typeof page !== 'undefined' && typeof page.video_slug !== 'undefined' ) { %>
   <video
     id="video"
     class="video-js vjs-default-skin vjs-big-play-centered"
@@ -9,7 +9,7 @@
   >
   </video>
 
-  <% if ( typeof page.transcript !== 'undefined' ) { %>
+  <% if ( typeof page.transcript !== 'undefined' && page.transcript != '' ) { %>
     <details>
       <summary>Video transcript</summary>
       <%= t.renderMarkdown(page.transcript) %>
