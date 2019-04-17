@@ -3,6 +3,8 @@
 // do something with big page title
 
 // interactive javascript
+  if(window.location.href.indexOf('interactive.html') >= 0){
+
     var data_url = require("./interactiveData");
     var url = "https://cdn.jsdelivr.net/npm/us-atlas@2/us/states-10m.json";
 
@@ -27,18 +29,50 @@
     // select area for table
     var table = d3.select("#table tbody");
 
+    // function for xhr success callback
+    function on_request_success() { 
 
+      // what we want to do with this callback and what args to pass it
+      this.callback.apply(this, this.arguments); 
 
+    }
+    
+    // function for xhr errors
+    function on_request_error() { 
 
+      console.error(this.statusText); 
 
+    }
 
-    // get the data
-    Promise.all([d3.json(url)]).then(function(data) {
+    function get_from_url(url, callback){
 
+      // set up new async xhr request
+      var request = new XMLHttpRequest();
 
+      // setup callback that was passed through args
+      request.callback = callback;
+      
+      request.onload = on_request_success;
+      request.onerror = on_request_error;
+
+      // open our requested url
+      request.open("GET", url, true);
+      request.send(null);
+
+    }
+
+    // get our data from our url and set display_data as callback func
+    get_from_url(url, display_data);
+
+    // callback function if get request was successful
+    // now we can display our data
+    function display_data(data){
+
+      // parse responseText into JSON so we can use it
+      var data = JSON.parse(this.responseText);
 
       // map data
-      var us = data[0]; 
+      var us = data; 
 
       // shootings data
       var shootings = data_url.records;
@@ -307,4 +341,6 @@
         }
         
       })
-    });
+    }
+
+  }
