@@ -6,7 +6,6 @@
   if(window.location.href.indexOf('interactive.html') >= 0){
 
     var data_url = require("./interactiveData");
-    var map_data = require("./mapData.json");
 
     var width = window.innerWidth;
     var height = width*0.67;
@@ -30,7 +29,7 @@
     var table = d3.select("#table tbody");
 
     // map data
-    var us = map_data; 
+    var us = require("./mapData.json"); 
 
     // shootings data
     var shootings = data_url.records;
