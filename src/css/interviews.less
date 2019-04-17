@@ -3,6 +3,9 @@
 	.interview {
 		.clearfix();
 		clear: both;
+		a {
+			text-decoration: none;
+		}
 		img {
 			float: left;
 			clear: left;
@@ -12,6 +15,11 @@
 			color: black;
 			text-decoration: none;
 			font-weight: normal;
+		}
+		h3, p {
+			&:hover {
+				text-decoration: underline;
+			}
 		}
 	}
 }
