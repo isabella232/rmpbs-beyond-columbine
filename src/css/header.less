@@ -3,11 +3,14 @@
   @media ( min-width: 500px ) {
     line-height: 56px;
   }
-  background-color: @darkpurple;
+  background-color: @white;
   .gutter();
 
   .navbar-upper {
     padding-top: 1rem;
+    @media ( min-width: 500px ) {
+      padding-top: 2rem;
+    }
     text-align: center;
     display: block;
     vertical-align: middle;
@@ -23,7 +26,7 @@
       text-decoration:none;
       font-weight:bold;
       font-size:3rem;
-      color:white;
+      color: @darkpurple;
       display: block;
     }
   }
@@ -50,14 +53,17 @@
       font-size: 1.5rem;
       text-transform: uppercase;
       font-weight: 700;
-      color:white;
+      color: @darkpurple;
 
       a {
-          color:white;
+          color: @darkpurple;
           text-decoration: none;
           text-shadow: inherit;
+          &:hover {
+            color: @darkpurple;
+            text-decoration: underline;
+          }
       }
     }
   }
-
 }

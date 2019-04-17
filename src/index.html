@@ -6,13 +6,13 @@
 	<body>
 	<%= t.include("partials/_nav.html", grunt.data.json) %>
 	<article id="home">
-		<section id="hero-video-container">
-			<video muted autoplay id="hero-video"> 
+		<section id="hero-video-container" class="mb">
+			<video muted autoplay id="hero-video">
 				<source src="assets/drone.mp4" type="video/mp4">
 			</video>
 		</section>
 
-		<section id="home-intro" class="width-reg">
+		<section id="home-intro" class="width-reg mb">
 			<h1><%= json.strings.home_title %></h1>
 
 			<%= json.strings.home_paragraph %>
@@ -39,7 +39,7 @@
 			</div>
 		</section>
 
-		<section id="interviews" class="width-reg">
+		<section id="interviews" class="width-reg mb">
 			<h2>Extended Interviews</h2>
 			<div class="grid-4">
 				<%
@@ -77,7 +77,8 @@
 					let mores = [
 						archieml.community_documentary
 					];
-					mores.forEach(function(more) { %>
+					mores.forEach(function(more)
+				{ %>
 					<div class="grid-item more col-3">
 						<a href="<%= more.file_slug %>.html">
 							<img src="https://img.youtube.com/vi/<%= more.video_slug %>/mqdefault.jpg" alt="<%= more.title %>">
@@ -91,7 +92,6 @@
 	</article>
 
 		<%= t.include("partials/_footer.html", grunt.data.json) %>
-		<script src="app.js" async></script>
 		<%= t.include("partials/_analytics.html") %>
 	</body>
 </html>
