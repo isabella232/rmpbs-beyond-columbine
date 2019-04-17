@@ -75,13 +75,28 @@
 			<div class="grid-3">
 				<%
 					let mores = [
-						archieml.community_documentary
+						archieml.caliber_of_healing,
+						archieml.podcasts,
+						archieml.community_documentary,
+						archieml.arts_district_guns_to_garden_tools,
+						archieml.arts_district_answer_the_call,
+						archieml.book_charity,
+						archieml.heavy_lift,
+						archieml.conversation_with_a_school_shooter,
+						archieml.red_flags
 					];
 					mores.forEach(function(more)
 				{ %>
 					<div class="grid-item more col-3">
 						<a href="<%= more.file_slug %>.html">
-							<img src="https://img.youtube.com/vi/<%= more.video_slug %>/mqdefault.jpg" alt="<%= more.title %>">
+							<%=
+								if ( ( typeof more.video_slug == 'undefined' || more.video_slug == '' ) && typeof more.image !== 'undefined' ) {
+									more.image_url = more.image;
+								} else {
+									more.image_url = 'https://img.youtube.com/vi/' + more.video_slug + '/mqdefault.jpg';
+								}
+							%>
+							<img src="<%= more.image_url %>" alt="<%= more.title %>">
 							<h3><%= more.title %></h3>
 							<p><%= more.leadin %></p>
 						</a>
