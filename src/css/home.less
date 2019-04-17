@@ -33,13 +33,19 @@ h1.big {
 }
 
 #interviews {
-	
+	margin-bottom: 5rem;
+	width: 100vw;
+	max-width: 100vw;
+
 	h2 {
 		color: white;
 		text-align: center;
 		margin-bottom: 3rem;
 	}
 	.grid-4 {
+		.gutter();
+		max-width: 1170px;
+		margin: 0 auto;
 		grid-auto-flow: dense;
 		grid-gap: 0;
 		@media (max-width: 768px)  {
