@@ -20,6 +20,10 @@
     <script>
       var annotations = <%= JSON.stringify( t.formatAnnotations( page.annotations ) ) %>
     </script>
+  <% } else { %>
+    <script>
+      var annotations = [];
+    </script>
   <% } %>
   <script src="video.js" async></script>
 <% } else { %>
