@@ -14,7 +14,8 @@
   },
   "scripts": {
     "src/js/main.js": "build/app.js",
-    "src/js/video.js": "build/video.js"
+    "src/js/video.js": "build/video.js",
+    "src/js/details-shim.js": "build/details-shim.js"
   },
   "title": "Beyond Columbine",
   "description": "",
