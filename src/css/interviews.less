@@ -28,9 +28,34 @@ details {
 			outline-color: @lightpurple;
 		}
 	}
-	&[open] {
+	&[open],
+	&.details_shim_open {
 		background-color: rgba( 0,0,0, 0.05 );
 		border-color: black;
+	}
+	&.details_shim_closed,
+	&.details_shim_open {
+		display: block;
+	}
+	&.details_shim_closed > * {
+		display: none;
+	}
+	&.details_shim_closed > summary,
+	&.details_shim_open   > summary {
+		display: block;
+	}
+	&.details_shim_closed > summary:before {
+		display: inline-block; 
+		content: "\25b6"; 
+		padding: 0 0.1em; 
+		margin-right: 0.4em; 
+		font-size: 0.9em;
+	}
+	&.details_shim_open > summary:before {
+		display: inline-block; 
+		content: "\25bc"; 
+		padding: 0; 
+		margin-right: 0.35em;
 	}
 	h3 {
 		padding-bottom: 0;
