@@ -14,7 +14,7 @@
 			<div class="grid-3">
 				<section class="footer-nav">
 					<ul>
-						<li class="heading">Insights</li>
+						<li class="heading">Insight</li>
 						<%
 							let documentaries = [
 								archieml.documentary_1,
@@ -59,6 +59,13 @@
 				<section class="footer-nav">
 					<ul>
 						<li class="heading">More</li>
+						<%
+							let extras = [
+								archieml.caliber_of_healing
+							];
+							extras.forEach(function(documentary) { %>
+							<li class="sublink"><a href="<%= documentary.file_slug %>.html"><%= documentary.headline %></a></li>
+						<% }); %>
 						<%
 							json.homepage_bottom.forEach(function(more) {
 							%>
