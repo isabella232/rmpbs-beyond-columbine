@@ -39,6 +39,16 @@
 						</a>
 					</div>
 				<% }); %>
+				<%
+					json.podcast_metadata.forEach(function(documentary) { %>
+					<div class="grid-item doc">
+						<a href="<%= documentary.url  %>">
+							<img src="<%= documentary.image  %>" alt="<%= documentary.title %>">
+							<h3><%= documentary.title %></h3>
+							<p><%= documentary.leadin %></p>
+						</a>
+					</div>
+				<% }); %>
 			</div>
 		</section>
 
@@ -83,7 +93,6 @@
 						archieml.arts_district_guns_to_garden_tools,
 						archieml.arts_district_answer_the_call,
 						archieml.heavy_lift,
-						archieml.podcasts,
 						archieml.red_flags,
 						archieml.operation_gun_debate,
 						archieml.conversation_with_a_school_shooter,
