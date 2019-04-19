@@ -20,6 +20,11 @@
       </h3>
 
       <%= t.renderMarkdown(page.text) %>
+
+      <ul class="subscribe-buttons">
+        <li><a href="https://podcasts.apple.com/us/podcast/insight-with-john-ferrugia/id1381493290" target="_blank"><img src="assets/itunes-logo.svg" alt="Listen on iTunes"></a></li>
+        <li><a href="https://www.stitcher.com/s?fid=332442&refid=stpr" target="_blank"><img src="assets/stitcher-logo.png" alt="Listen on Stitcher"></a></li>
+      </ul>
     </article>
 
     <%= t.include("partials/_footer.html", grunt.data.json) %>
