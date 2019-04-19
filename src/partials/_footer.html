@@ -11,7 +11,7 @@
 			<div class="grid-3">
 				<section class="footer-nav">
 					<ul>
-						<li class="heading">Documentaries</li>
+						<li class="heading">Insights</li>
 						<%
 							let documentaries = [
 								archieml.documentary_1,
@@ -21,16 +21,19 @@
 							documentaries.forEach(function(documentary) { %>
 							<li class="sublink"><a href="<%= documentary.file_slug %>.html"><%= documentary.headline %></a></li>
 						<% }); %>
-						<li class="heading"><a href="interactive.html">School Shooting Map</a></li>
-						<li class="heading"><a href="podcasts.html">Podcasts</a></li>
-						<li class="heading"><a href="about.html">About</a></li>
-						<li class="heading"><a href="https://rmpm.secure.force.com/support/rmpbs/donate" target="_blank" >Support RMPBS</a></li>
+
+						<%
+							json.podcast_metadata.forEach(function(documentary) { %>
+							<li class="sublink"><a href="<%= documentary.url %>.html"><%= documentary.title %></a></li>
+						<% }); %>
+
 					</ul>
 				</section>
 
 				<section class="footer-nav">
 					<ul>
 						<li class="heading"><a href="interviews.html">Interviews</a></li>
+
 						<li class="sublink"><a href="interview-aj.html">A.J. DeAndrea</a></li>
 						<li class="sublink"><a href="interview-amber.html">Amber Sanders</a></li>
 						<li class="sublink"><a href="interview-coni.html">Coni Sanders</a></li>
@@ -38,18 +41,20 @@
 						<li class="sublink"><a href="interview-diwata.html">Diwata Quach</a></li>
 						<li class="sublink"><a href="interview-frank.html">Frank DeAngelis</a></li>
 						<li class="sublink"><a href="interview-heather.html">Heather Martin</a></li>
-					</ul>
-				</section>
-
-				<section class="footer-nav">
-					<ul>
-						<li class="sublink empty">&nbsp;</li>
 						<li class="sublink"><a href="interview-lance.html">Lance Kirklin</a></li>
 						<li class="sublink"><a href="interview-makai.html">Makai Hall</a></li>
 						<li class="sublink"><a href="interview-mallory.html">Mallory Sanders</a></li>
 						<li class="sublink"><a href="interview-mike.html">Mike Kirklin</a></li>
 						<li class="sublink"><a href="interview-mollie.html">Mollie Holt</a></li>
 						<li class="sublink"><a href="interview-randy.html">Randy Brown</a></li>
+					</ul>
+				</section>
+
+				<section class="footer-nav">
+					<ul>
+						<li class="heading"><a href="interactive.html">School Shooting Map</a></li>
+						<li class="heading"><a href="about.html">About</a></li>
+						<li class="heading"><a href="https://rmpm.secure.force.com/support/rmpbs/donate" target="_blank" >Support RMPBS</a></li>
 					</ul>
 				</section>
 			</div>
