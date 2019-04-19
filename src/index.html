@@ -92,12 +92,7 @@
 						archieml.caliber_of_healing,
 						archieml.arts_district_guns_to_garden_tools,
 						archieml.arts_district_answer_the_call,
-						archieml.heavy_lift,
-						archieml.red_flags,
-						archieml.operation_gun_debate,
-						archieml.conversation_with_a_school_shooter,
-						archieml.community_documentary,
-						archieml.book_charity
+						archieml.community_documentary
 					];
 					mores.forEach(function(more)
 				{ %>
@@ -111,6 +106,17 @@
 								}
 							%>
 							<img src="<%= more.image_url %>" alt="<%= more.title %>">
+							<h3><%= more.title %></h3>
+							<p><%= more.leadin %></p>
+						</a>
+					</div>
+				<% }); %>
+				<%
+					json.homepage_bottom.forEach(function(more) {
+					%>
+					<div class="grid-item more col-3">
+						<a href="<%= more.url %>.html">
+							<img src="<%= more.image%>" alt="<%= more.title %>">
 							<h3><%= more.title %></h3>
 							<p><%= more.leadin %></p>
 						</a>

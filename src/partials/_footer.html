@@ -27,6 +27,9 @@
 							<li class="sublink"><a href="<%= documentary.url %>.html"><%= documentary.title %></a></li>
 						<% }); %>
 
+						<li class="heading"><a href="interactive.html">School Shooting Map</a></li>
+						<li class="heading"><a href="about.html">About</a></li>
+						<li class="heading"><a href="https://rmpm.secure.force.com/support/rmpbs/donate" target="_blank" >Support RMPBS</a></li>
 					</ul>
 				</section>
 
@@ -52,9 +55,12 @@
 
 				<section class="footer-nav">
 					<ul>
-						<li class="heading"><a href="interactive.html">School Shooting Map</a></li>
-						<li class="heading"><a href="about.html">About</a></li>
-						<li class="heading"><a href="https://rmpm.secure.force.com/support/rmpbs/donate" target="_blank" >Support RMPBS</a></li>
+						<li class="heading">More</li>
+						<%
+							json.homepage_bottom.forEach(function(more) {
+							%>
+							<li class="sublink"><a href="<%= more.url %>"><%= more.title %></a></li>
+						<% }); %>
 					</ul>
 				</section>
 			</div>
