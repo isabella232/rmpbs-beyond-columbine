@@ -1,6 +1,15 @@
 <!doctype html>
 <html lang="en-US">
 	<head>
+		<%
+			let page = {
+				"title": json.project.title,
+				"description": json.project.description,
+				"image": json.project.image,
+				"url": json.project.url
+			}
+			grunt.data.json.page = page;
+		%>
 		<%= t.include("partials/_head.html", grunt.data.json) %>
 	</head>
 	<body>

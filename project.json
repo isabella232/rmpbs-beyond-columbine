@@ -19,7 +19,7 @@
     "src/js/homepage.js": "build/homepage.js"
   },
   "title": "Beyond Columbine",
-  "description": "",
+  "description": "Twenty years after Columbine, Rocky Mountain Public Media takes you Beyond Columbine.",
   "url": "//projects.rmpbs.org/beyond-columbine/",
   "image": "assets/logo.png",
   "sheets": [

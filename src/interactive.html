@@ -1,6 +1,15 @@
 <!doctype html>
 <html lang="en-US">
   <head>
+		<%
+			let page = {
+				"title": json.project.title + ": The School Schootings Map",
+				"description": json.project.description,
+				"image": json.project.image,
+				"url": "https://projects.rmpbs.org/beyond-columbine/interactive.html"
+			}
+			grunt.data.json.page = page;
+		%>
     <%= t.include("partials/_head.html", grunt.data.json) %>
     <script src="https://d3js.org/d3.v5.min.js"></script>
   	<script src="https://d3js.org/topojson.v2.min.js"></script> 
