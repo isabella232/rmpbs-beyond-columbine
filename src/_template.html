@@ -21,25 +21,10 @@
       </h3>
 
       <%= t.include("partials/_video_helper.html", grunt.data.json) %>
-      <iframe
-        width="560"
-        height="315"
-        src="https://www.youtube-nocookie.com/embed/<%= page.video_slug %>"
-        frameborder="0"
-        allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen>
-      </iframe>
-
-      <details>
-        <summary>Video transcript</summary>
-        <%= t.renderMarkdown(page.transcript) %>
-      </details>
-
       <%= t.renderMarkdown(page.text) %>
     </article>
 
     <%= t.include("partials/_footer.html", grunt.data.json) %>
-    <script src="app.js" async></script>
     <%= t.include("partials/_analytics.html") %>
   </body>
 </html>

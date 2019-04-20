@@ -50,8 +50,11 @@ module.exports = function(grunt) {
     grunt.verbose.writeln(" - Including file: " +  where);
     var file = grunt.file.read(path.resolve("src/", where));
     var templateData = Object.create(data || grunt.data);
+
     templateData.archieml = grunt.data.archieml;
+    templateData.json = grunt.data.json;
     templateData.t = grunt.template;
+
     return process(file, templateData, where);
   };
 

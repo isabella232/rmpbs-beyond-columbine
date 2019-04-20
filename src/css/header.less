@@ -51,8 +51,25 @@
     word-spacing: 1rem;
     display: inline;
     text-align: right;
+    li:first-of-type a{
+      word-spacing: normal;
+    }
+    .social-logo {
+      &.facebook-logo {
+        width: 20px;
+        vertical-align: text-bottom;
+      }
+      &.twitter-logo {
+        width: 30px;
+        vertical-align: middle;
+      }
+    }
     @media (max-width: 700px) {
       float: none;
+      text-align: left;
+      ul {
+        display: block;
+      }
     }
   }
 

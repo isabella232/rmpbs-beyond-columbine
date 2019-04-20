@@ -15,10 +15,11 @@
   "scripts": {
     "src/js/main.js": "build/app.js",
     "src/js/video.js": "build/video.js",
-    "src/js/details-shim.js": "build/details-shim.js"
+    "src/js/details-shim.js": "build/details-shim.js",
+    "src/js/homepage.js": "build/homepage.js"
   },
   "title": "Beyond Columbine",
-  "description": "",
+  "description": "Twenty years after Columbine, Rocky Mountain Public Media takes you Beyond Columbine.",
   "url": "//projects.rmpbs.org/beyond-columbine/",
   "image": "assets/logo.png",
   "sheets": [
@@ -39,6 +40,7 @@
     "1nTwp0K74mfnx5iMUW7mCnpQXYnkQ5CxiAAV2itANquU",
     "1k---AyYVTDGZ3YzyBfeWT702VNgJtz25T0YeZY-2wBA",
     "1izvnURrZQdfqCgYFpA-43UVmoLRHzufxvPvyNFXvTH0",
+    "1MxX-wEefEYcweLkqYFcEi22hb0VVItWrdUwlzN7KWCo",
 
     "1apDHaYWO4sC6Jxk_lH3og9YzZ6PvhMaS8XIPSdWKJio",
     "1XxhFjNnn9dkUSq_CELLB7Hj151CF0OMaAS934p9NmKU",
