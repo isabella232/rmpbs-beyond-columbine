@@ -39,13 +39,17 @@
               archieml.interview_mallory,
               archieml.interview_mike,
               archieml.interview_mollie,
-              archieml.interview_tom,
-              archieml.interview_randy
+              archieml.interview_randy,
+              archieml.interview_tom
             ];
             interviewees.forEach(function(interview) { %>
           <div class="interview ">
             <a href="interview-<%= interview.file_slug %>.html">
-              <img src="https://img.youtube.com/vi/<%= interview.video_slug %>/mqdefault.jpg" alt="<%= interview.name %>">
+              <% if ( typeof interview.image !== 'undefined' ) { %>
+                <img src="<%= interview.image %>" alt="<%= interview.name %>">
+              <% } else { %>
+                <img src="https://img.youtube.com/vi/<%= interview.video_slug %>/mqdefault.jpg" alt="<%= interview.name %>">
+              <% } %>
               <h3><%= interview.name %></h3>
               <p><!-- interview.leadin --><%= interview.leadin %></p>
             </a>
